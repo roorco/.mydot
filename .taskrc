@@ -1,0 +1,186 @@
+# [Created by task 2.3.0 1/26/2014 23:22:34
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-faq',
+# 'man task-tutorial', 'man task-color', 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=~/Dropbox/Task/
+
+# Dates
+#dateformat=m/d/Y                              # Preferred input and display date format
+dateformat=d/m/Y                              # Preferred input and display date format
+#dateformat.holiday=DMY                        # Preferred input date format for holidays
+#dateformat.report=m/d/Y                       # Preferred display date format for reports
+dateformat.report=b.d                       # Preferred display date format for reports
+
+dateformat.annotation=*                   # Preferred display date format for reports
+#dateformat.annotation=m/d/Y                   # Preferred display date format for reports
+weekstart=Monday                              # Sunday or Monday only
+displayweeknumber=yes                         # Show week numbers on calendar
+due=7                                         # Task is considered due in 7 days
+
+# task long
+report.long.description=Lists all task, all data, matching the specified criteria
+report.long.columns=id,project,priority,due,due.age,depends,tags,description
+report.long.labels=ID,Proj,!,Due,Ctdw,Dep,Tags,Description & Annotations
+report.long.sort=due+,priority-,project-
+report.long.filter=status:pending
+#report.long.dateformat=d/m
+#report.long.dateformat=b.d
+#report.long.annotations=full
+
+# task list
+report.list.description=Lists all tasks matching the specified criteria
+report.list.columns=project,id,priority,due,tags,description
+report.list.labels=ID,Proj,Pri,Due,Tags,Description & Annotation
+report.list.sort=due+,priority-,project+
+report.list.filter=status:pending
+report.list.dateformat=b.d
+#report.list.dateformat=m/d
+#report.list.annotations=full
+
+# task ls
+report.ls.description=Minimal listing of all tasks matching the specified criteria
+report.ls.columns=id,project,due,due.age,priority,description.count
+report.ls.labels=ID,Project,Due,Ctdw,Pri,Description
+report.ls.sort=due+,priority-,project+
+report.ls.filter=status:pending
+report.ls.filter=status:pending
+report.ls.dateformat=b.d
+report.ls.annotations= none
+
+# task minimal
+report.minimal.description=A really minimal listing
+report.minimal.columns=id,project,description.count
+report.minimal.labels=ID,Project,Description
+report.minimal.sort=project+,description+
+report.minimal.filter=status:pending
+report.minimal.dateformat=m/d/Y
+report.minimal.annotations=sparse
+
+# task newest
+report.newest.description=Shows the newest tasks
+report.newest.columns=id,project,priority,due,entry.age,description
+report.newest.labels=ID,Project,Pri,Due,Age,Description
+report.newest.sort=id-
+report.newest.filter=status:pending limit:10
+#report.newest.dateformat=m/d/Y
+#report.newest.annotations=full
+
+# task oldest
+report.oldest.description=Shows the oldest tasks
+report.oldest.columns=id,project,priority,due,entry.age,description
+report.oldest.labels=ID,Project,Pri,Due,Age,Description
+report.oldest.sort=id+
+report.oldest.filter=status:pending limit:10
+report.oldest.dateformat=m/d/Y
+#report.oldest.annotations=full
+
+# task overdue
+report.overdue.description=Lists overdue tasks matching the specified criteria
+report.overdue.columns=id,project,priority,due,entry.age,description
+report.overdue.labels=ID,Project,Pri,Due,Age,Description
+report.overdue.sort=due+,priority-,project+
+report.overdue.filter=status:pending due.before:today
+#report.overdue.dateformat=m/d/Y
+#report.overdue.annotations=full
+
+# task active
+report.active.description=Lists active tasks matching the specified criteria
+report.active.columns=id,project,priority,due,entry.age,description
+report.active.labels=ID,Project,Pri,Due,,Age,Description
+report.active.sort=due+,priority-,project+
+report.active.filter=status:pending start.any:
+#report.active.dateformat=m/d/Y
+#report.active.annotations=full
+
+# task completed
+report.completed.description=Lists all task, all data, matching the specified criteria
+report.completed.columns=project,priority,due,tags,description
+report.completed.labels=Proj,Pri,Due,Tags,Description & Annotations
+report.completed.sort=project+,priority-
+report.completed.filter=status:completed
+report.completed.dateformat=m/d
+#report.completed.annotations=full
+
+# task recurring
+report.recurring.description=Lists recurring tasks matching the specified criteria
+report.recurring.columns=id,project,priority,due,recur,entry.age,description
+report.recurring.labels=ID,Project,Pri,Due,Recur,Age,Description
+report.recurring.sort=due+,priority-,project+
+report.recurring.filter=status:pending parent.any:
+report.recurring.dateformat=m/d/Y
+#report.recurring.annotations=full
+
+# task waiting
+report.waiting.description=Lists all waiting tasks matching the specified criteria
+report.waiting.columns=id,project,priority,wait,entry.age,description
+report.waiting.labels=ID,Project,Pri,Wait,Age,Description
+report.waiting.sort=wait+,priority-,project+
+report.waiting.filter=status:waiting
+report.waiting.dateformat=m/d/Y
+#report.waiting.annotations=full
+
+# task all
+report.all.description=Lists all tasks matching the specified criteria
+report.all.columns=id,project,priority,due,entry.age,description
+report.all.labels=ID,Project,Pri,Due,Age,Description
+report.all.sort=due+,priority-,project+
+report.all.dateformat=m/d/Y
+#report.all.annotations=full
+
+# task next
+report.next.description=Lists the most urgent tasks
+report.next.columns=id,project,priority,due,entry.age,description
+report.next.labels=ID,Project,Pri,Due,Age,Description
+report.next.sort=due+,priority-,project+
+report.next.filter=status:pending limit:pentry.age
+report.next.dateformat=m/d/Y
+#report.next.annotations=full
+
+#Shadow file support
+#shadow.file=/Dropbox/task/shadow.txt rc.verbose=label # Location of shadow file
+#shadow.command=conky rc.verbose=label # Task command for shadow file
+#shadow.notify=on # Footnote when updated
+
+# task conky
+report.conky.description=Conky report
+report.conky.columns=project,description.truncated,depends.indicator,priority
+report.conky.labels=Project,Desc,D,P
+report.conky.sort=due+,project+,priority+
+report.conky.filter=status:pending limit:page
+#report.conky.description=Tasklist for Conky
+#report.conky.color=on
+#report.conky.columns=due,project,priority,description.truncated
+#report.conky.labels=Project,Desc
+#report.conky.sort=due+,project+,priority+
+report.conky.limit=10
+report.conky.dateformat=m/d
+report.conky.annotations=none
+
+# Color theme (uncomment one to use)
+#include /usr/local/share/doc/task/rc/light-16.theme
+#include /usr/local/share/doc/task/rc/light-256.theme
+#include /usr/local/share/doc/task/rc/dark-16.theme
+#include /usr/local/share/doc/task/rc/dark-256.theme
+#include /usr/local/share/doc/task/rc/dark-red-256.theme
+#include /usr/local/share/doc/task/rc/dark-green-256.theme
+#include /usr/local/share/doc/task/rc/dark-blue-256.theme
+#include /usr/local/share/doc/task/rc/dark-violets-256.theme
+include /usr/local/share/doc/task/rc/dark-yellow-green.theme
+#include /usr/local/share/doc/task/rc/dark-gray-256.theme
+verbose=yes
+#verbose=blank, header, label, new-id, affected, edit, special, project
+#verbose=footnote
+
+curses=on
+defaultwidth=80
+uda.estimate.type=numeric
+uda.estimate.label=Est
