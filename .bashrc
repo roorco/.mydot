@@ -4,6 +4,7 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+#[[ -z "$TMUX" ]] && exec tmux
 
 TERM=xterm-256color
 alias t="task"
