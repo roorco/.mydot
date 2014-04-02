@@ -4,7 +4,11 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-#[[ -z "$TMUX" ]] && exec tmux
+[[ -z "$TMUX" ]] && tmx
+
+PS1='[\u@\h \W]\$ '
+export PS1='\[\033[01;32m\]\u@\h \[\033[00;31m\]\W \$ \[\033[00m\]'
+export EDITOR=vim
 
 TERM=xterm-256color
 alias t="task"
@@ -94,6 +98,7 @@ alias :x=' exit'
 alias cd..='cd ..'
 # }}}
 #Tmux aliases
+alias tmx="tmux  attach-session -t ALL"
 alias tmux="tmux -2"
 alias tmuxl="tmux list-sessions"
 alias tmuxt='tmux attach-session -t'
@@ -108,10 +113,7 @@ alias yaou='sudo yaourt -Syu --aur'
 # '[r]emove [o]rphans' - recursively remove ALL orphaned packages
 alias pacro="/usr/bin/pacman -Qtdq > /dev/null && sudo /usr/bin/pacman -Rns \$(/usr/bin/pacman -Qtdq | sed -e ':a;N;$!ba;s/\n/ /g')"
 # }}}
-PS1='[\u@\h \W]\$ '
-export PS1='\[\033[01;32m\]\u@\h \[\033[00;31m\]\W \$ \[\033[00m\]'
-export EDITOR=vim
-
+#
 #alias per irssi
 alias irsi='bash ~/bin/irssi'
 #make sure extglob is enabled for extract script

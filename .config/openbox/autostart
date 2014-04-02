@@ -19,6 +19,9 @@ compton -CGb &
 ## Background
 nitrogen --restore &
 
+## Easystroke
+easystroke &&
+
 ## Panel
 (sleep 1s && tint2) &
 
@@ -37,7 +40,6 @@ nitrogen --restore &
 
 #skype per bitlbee
 #skyped &
-
 
 #montare dispositivi
 udiskie &
