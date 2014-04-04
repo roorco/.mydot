@@ -20,7 +20,7 @@ compton -CGb &
 nitrogen --restore &
 
 ## Easystroke
-easystroke &&
+easystroke &
 
 ## Panel
 (sleep 1s && tint2) &
@@ -33,7 +33,7 @@ easystroke &&
 #(sleep 1s && thunar --daemon) &
 
 ## Optionally enable screensaver
-#(sleep 1s && xautolock -time 15 -locker 'xlock -mode blank') &
+(sleep 1s && xautolock -time 15 -locker 'xlock -mode blank') &
 
 ## Optionally disable touchpad
 #/usr/bin/synclient TouchpadOff=1 &

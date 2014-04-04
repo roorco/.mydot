@@ -1,14 +1,25 @@
 #
-# ~/.bashrc
+# Executes commands at the start of an interactive session.
 #
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 [[ -z "$TMUX" ]]
 
-PS1='[\u@\h \W]\$ '
-export PS1='\[\033[01;32m\]\u@\h \[\033[00;31m\]\W \$ \[\033[00m\]'
-export EDITOR=vim
+#PS1='[\u@\h \W]\$ '
+#export PS1='\[\033[01;32m\]\u@\h \[\033[00;31m\]\W \$ \[\033[00m\]'
+export EDITOR=/usr/bin/vim
+export VISUAL=/usr/bin/vim
 
 TERM=xterm-256color
 alias t="task"
@@ -115,11 +126,6 @@ alias yaou='sudo yaourt -Syu --aur'
 # '[r]emove [o]rphans' - recursively remove ALL orphaned packages
 alias pacro="/usr/bin/pacman -Qtdq > /dev/null && sudo /usr/bin/pacman -Rns \$(/usr/bin/pacman -Qtdq | sed -e ':a;N;$!ba;s/\n/ /g')"
 # }}}
-#
-#alias per irssi
-alias irsi='bash ~/bin/irssi'
-#make sure extglob is enabled for extract script
-shopt -s extglob
 # cd and ls in one
 cl() {
     dir=$1
@@ -131,24 +137,6 @@ cl() {
         ls
     else
         echo "bash: cl: '$dir': Directory not found"
-    fi
-}
-#simple note taker
-note () {
-    # if file doesn't exist, create it
-    if [[ ! -f $HOME/.notes ]]; then
-        touch "$HOME/.notes"
-    fi
-
-    if ! (($#)); then
-        # no arguments, print file
-        cat "$HOME/.notes"
-    elif [[ "$1" == "-c" ]]; then
-        # clear file
-        > "$HOME/.notes"
-    else
-        # add all arguments to file
-        printf "%s\n" "$*" >> "$HOME/.notes"
     fi
 }
 
