@@ -12,6 +12,11 @@ fi
 
 # Customize to your needs...
 
+# vi key mode
+bindkey -v
+bindkey "\e[3~" delete-char
+bindkey "^R" history-incremental-search-backward
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 [[ -z "$TMUX" ]]
