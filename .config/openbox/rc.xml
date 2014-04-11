@@ -174,37 +174,89 @@
 	  <showDelay>300</showDelay>
 	  <!-- in milliseconds (1000 = 1 second) -->
 	  <moveButton>Middle</moveButton>
-	  <!-- 'Left', 'Middle', 'Right' -->
-	  </dock>
-	  <keyboard><chainQuitKey>C-g</chainQuitKey><keybind key="W-Left"><action name="DesktopLeft"><wrap>no</wrap></action></keybind><!--<keybind key="XF86PowerOff"><action name="Execute"><command>systemctl poweroff</command></action></keybind>--><keybind key="W-Right"><action name="DesktopRight"><wrap>no</wrap></action></keybind><keybind key="W-Up"><action name="DesktopUp"><wrap>no</wrap></action></keybind><keybind key="W-Down"><action name="DesktopDown"><wrap>no</wrap></action></keybind><keybind key="S-A-Left"><action name="SendToDesktopLeft"><wrap>no</wrap></action></keybind><keybind key="S-A-Right"><action name="SendToDesktopRight"><wrap>no</wrap></action></keybind><keybind key="S-A-Up"><action name="SendToDesktopUp"><wrap>no</wrap></action></keybind><keybind key="S-A-Down"><action name="SendToDesktopDown"><wrap>no</wrap></action></keybind><keybind key="W-F1"><action name="Desktop"><desktop>1</desktop></action></keybind><keybind key="W-F2"><action name="Desktop"><desktop>2</desktop></action></keybind><keybind key="W-F3"><action name="Desktop"><desktop>3</desktop></action></keybind><keybind key="W-F4"><action name="Desktop"><desktop>4</desktop></action></keybind><keybind key="W-F5"><action name="Desktop"><desktop>5</desktop></action></keybind><keybind key="W-d"><action name="ToggleShowDesktop"/></keybind><keybind key="A-F4"><action name="Close"/></keybind><keybind key="A-F3"><action name="Execute"><command>dmenu_run -fn -misc-fixed-*-*-*-*-20-200-*-*-*-*-*-*  -i -nf 'gray' -sb 'dark green'</command><startupnotify><enabled>yes</enabled><name>dmenu</name></startupnotify></action></keybind><keybind key="A-Escape"><action name="Lower"/><action name="FocusToBottom"/><action name="Unfocus"/></keybind><keybind key="A-space"><action name="ShowMenu"><menu>client-menu</menu></action></keybind><keybind key="A-Tab"><action name="NextWindow"/></keybind><keybind key="A-S-Tab"><action name="PreviousWindow"/></keybind><keybind key="C-A-Tab"><action name="NextWindow"><panels>yes</panels><desktop>yes</desktop></action></keybind><keybind key="W-l"><action name="Execute"><command>luakit</command><startupnotify><enabled>yes</enabled><name>Web Browser</name></startupnotify></action></keybind><keybind key="W-w"><action name="Execute"><command>chromium</command><startupnotify><enabled>yes</enabled><name>Web Browser</name></startupnotify></action></keybind><keybind key="W-b"><action name="Execute"><command>firefox</command><startupnotify><enabled>yes</enabled><name>Web Browser</name></startupnotify></action></keybind>
-<keybind key="W-q"><action name="Execute"><command>xkill</command><startupnotify><enabled>yes</enabled><name>Kill an application</name></startupnotify></action></keybind><keybind key="W-v"><action name="ToggleMaximizeVert"/></keybind><keybind key="W-space"><action name="ShowMenu"><menu>root-menu</menu></action></keybind><keybind key="A-F10"><action name="ToggleMaximizeFull"/></keybind><keybind key="C-A-Right"><action name="MoveToEdgeEast"/></keybind><keybind key="C-A-Up"><action name="MoveToEdgeNorth"/></keybind><keybind key="C-A-Left"><action name="MoveToEdgeWest"/></keybind><keybind key="C-A-Down"><action name="MoveToEdgeSouth"/></keybind><keybind key="W-h"><action name="ToggleMaximizeHorz"/></keybind><keybind key="A-W-Up"><action name="GrowToEdgeNorth"/></keybind><keybind key="A-W-Right"><action name="GrowToEdgeEast"/></keybind><keybind key="A-W-Down"><action name="GrowToEdgeSouth"/></keybind><keybind key="A-W-Left"><action name="GrowToEdgeWest"/></keybind><keybind key="W-c"><action name="MoveToCenter"/></keybind><keybind key="A-Up"><action name="Execute"><command>amixer set Master 5%+ unmute</command></action></keybind><keybind key="A-Down"><action name="Execute"><command>amixer set Master 5%- unmute</command></action></keybind><keybind key="W-S-Up"><action name="DirectionalCycleWindows"><direction>up</direction></action></keybind><keybind key="W-S-Down"><action name="DirectionalCycleWindows"><direction>down</direction></action></keybind><!-- Keybindings for running applications --><keybind key="W-Return"><action name="Execute"><startupnotify><enabled>true</enabled><name>xfce4-terminal</name></startupnotify><command>xfce4-terminal --drop-down</command></action></keybind>
-<keybind key="W-t"><action name="Execute"><startupnotify><enabled>true</enabled><name>lxterminal</name></startupnotify><command>lxterminal</command></action></keybind><keybind key="W-f"><action name="Execute"><startupnotify><enabled>true</enabled><name>thunar</name></startupnotify><command>thunar</command></action></keybind><keybind key="W-s"><action name="Execute"><startupnotify><enabled>true</enabled><name>synapse</name></startupnotify><command>synapse</command></action></keybind><keybind key="W-m"><action name="Execute"><startupnotify><enabled>true</enabled><name>dmenu</name></startupnotify><command>dmenu_run -fn -misc-fixed-*-*-*-*-20-200-*-*-*-*-*-*  -i -nf 'gray' -sb 'dark green' -nb 'dim gray'</command></action></keybind><keybind key="W-x"><action name="Execute"><startupnotify><enabled>true</enabled><name>oblogout</name></startupnotify><command>oblogout</command></action></keybind><keybind key="Print"><action name="Execute"><startupnotify><enabled>true</enabled><name>gnome-screenshot</name></startupnotify><command>gnome-screenshot</command></action></keybind>
-
-
-<keybind key="XF86MonBrightnessUp"><action name="Execute"><command>xbacklight +10</command></action></keybind>
-<keybind key="XF86MonBrightnessDown"><action name="Execute"><command>xbacklight -10</command></action></keybind>
-<!-- Where installing pulse-audio instead, change 'amixer set' to 'amixer -D pulse set' --><keybind key="XF86AudioRaiseVolume"><action name="Execute"><command>amixer set Master 10%+</command></action></keybind><!-- Where installing pulse-audio instead, change 'amixer set' to 'amixer -D pulse set' --><!-- Where installing pulse-audio instead, nothing needs to be changed --><keybind key="XF86AudioMute"><action name="Execute"><command>amixer set Master toggle</command></action></keybind><!-- Scorciatioe personali -->
-#meta; sinistra
-<keybind key="C-W-Left"><action name="UnmaximizeFull"/><action name="MoveResizeTo"><x>0</x><y>0</y><width>640</width><height>790</height></action></keybind>
-#meta; destra
-<keybind key="C-W-Right"><action name="UnmaximizeFull"/><action name="MoveResizeTo"><x>640</x><y>0</y><width>640</width><height>790</height></action></keybind>
-#meta; di sopra
-<keybind key="C-W-Up"><action name="UnmaximizeFull"/><action name="MoveResizeTo"><x>0</x><y>0</y><width>1280</width><height>408</height></action></keybind>
-#meta; di sotto
-<keybind key="C-W-Down"><action name="MoveResizeTo"><action name="UnmaximizeFull"/><x>0</x><y>400</y><width>1280</width><height>380</height></action></keybind>
-#dimezzare dimensioni
-<keybind key="W-x"><action name="UnmaximizeFull"/><action name="MoveResizeTo"><width>50%</width></action></keybind>
-
-# un/maximize vertically
-<keybind key="W-v"><action name="ToggleMaximizeVert"/></keybind>
-#always on top
-<keybind key="W-z"><action name="ToggleAlwaysOnTop"/></keybind>
-#toggle decorations
-<keybind key="A-W-x"><action name="ToggleDecorations"/></keybind>
-#Resize 
-<keybind key="W-r"><action name="Resize"/></keybind>
-#iconify
-<keybind key="W-n"><action name="Iconify"/></keybind>
+	<!-- 'Left', 'Middle', 'Right' -->
+	</dock>
+	<keyboard><chainQuitKey>C-g</chainQuitKey>
+	<keybind key="W-Left"><action name="DesktopLeft"><wrap>no</wrap></action></keybind>
+	<!--<keybind key="XF86PowerOff"><action name="Execute"><command>systemctl poweroff</command></action></keybind>-->
+<!-- Scorciatoie movimenti desktop-->
+	<keybind key="W-Right"><action name="DesktopRight"><wrap>no</wrap></action></keybind>
+	<keybind key="W-Up"><action name="DesktopUp"><wrap>no</wrap></action></keybind>
+	<keybind key="W-Down"><action name="DesktopDown"><wrap>no</wrap></action></keybind>
+	<keybind key="S-A-Left"><action name="SendToDesktopLeft"><wrap>no</wrap></action></keybind>
+	<keybind key="S-A-Right"><action name="SendToDesktopRight"><wrap>no</wrap></action></keybind>
+	<keybind key="S-A-Up"><action name="SendToDesktopUp"><wrap>no</wrap></action></keybind>
+	<keybind key="S-A-Down"><action name="SendToDesktopDown"><wrap>no</wrap></action></keybind>
+	<keybind key="W-F1"><action name="Desktop"><desktop>1</desktop></action></keybind>
+	<keybind key="W-F2"><action name="Desktop"><desktop>2</desktop></action></keybind>
+	<keybind key="W-F3"><action name="Desktop"><desktop>3</desktop></action></keybind>
+	<keybind key="W-F4"><action name="Desktop"><desktop>4</desktop></action></keybind>
+	<keybind key="W-F5"><action name="Desktop"><desktop>5</desktop></action></keybind>
+<!-- Scorciatoie gestione finestre -->
+	<keybind key="W-d"><action name="ToggleShowDesktop"/></keybind>
+	<keybind key="A-F4"><action name="Close"/></keybind>
+	<keybind key="A-F3"><action name="Execute"><command>dmenu_run -fn -misc-fixed-*-*-*-*-20-200-*-*-*-*-*-*  -i -nf 'gray' -sb 'dark green'</command><startupnotify><enabled>yes</enabled><name>dmenu</name></startupnotify></action></keybind>
+	<keybind key="A-Escape"><action name="Lower"/><action name="FocusToBottom"/><action name="Unfocus"/></keybind>
+	<keybind key="A-space"><action name="ShowMenu"><menu>client-menu</menu></action></keybind>
+	<keybind key="A-Tab"><action name="NextWindow"/></keybind>
+	<keybind key="A-S-Tab"><action name="PreviousWindow"/></keybind>
+	<keybind key="C-A-Tab"><action name="NextWindow"><panels>yes</panels><desktop>yes</desktop></action></keybind>
+	<keybind key="W-v"><action name="ToggleMaximizeVert"/></keybind>
+	<keybind key="A-F10"><action name="ToggleMaximizeFull"/></keybind>
+	<keybind key="C-A-Right"><action name="MoveToEdgeEast"/></keybind>
+	<keybind key="C-A-Up"><action name="MoveToEdgeNorth"/></keybind>
+	<keybind key="C-A-Left"><action name="MoveToEdgeWest"/></keybind>
+	<keybind key="C-A-Down"><action name="MoveToEdgeSouth"/></keybind>
+	<keybind key="W-h"><action name="ToggleMaximizeHorz"/></keybind>
+	<keybind key="A-W-Up"><action name="GrowToEdgeNorth"/></keybind>
+	<keybind key="A-W-Right"><action name="GrowToEdgeEast"/></keybind>
+	<keybind key="A-W-Down"><action name="GrowToEdgeSouth"/></keybind>
+	<keybind key="A-W-Left"><action name="GrowToEdgeWest"/></keybind>
+	<keybind key="W-c"><action name="MoveToCenter"/></keybind>
+	<keybind key="W-S-Down"><action name="DirectionalCycleWindows"><direction>down</direction></action></keybind>
+	<keybind key="W-S-Up"><action name="DirectionalCycleWindows"><direction>up</direction></action></keybind>
+	#meta; sinistra
+	<keybind key="C-W-Left"><action name="UnmaximizeFull"/><action name="MoveResizeTo"><x>0</x><y>0</y><width>640</width><height>790</height></action></keybind>
+	#meta destra
+	<keybind key="C-W-Right"><action name="UnmaximizeFull"/><action name="MoveResizeTo"><x>640</x><y>0</y><width>640</width><height>790</height></action></keybind>
+	#meta sopra
+	<keybind key="C-W-Up"><action name="UnmaximizeFull"/><action name="MoveResizeTo"><x>0</x><y>0</y><width>1280</width><height>408</height></action></keybind>
+	#meta sotto
+	<keybind key="C-W-Down"><action name="MoveResizeTo"><action name="UnmaximizeFull"/><x>0</x><y>400</y><width>1280</width><height>380</height></action></keybind>
+	#dimezzare dimensioni
+	<keybind key="W-x"><action name="UnmaximizeFull"/><action name="MoveResizeTo"><width>50%</width></action></keybind>
+	#un/maximize vertically
+	<keybind key="W-v"><action name="ToggleMaximizeVert"/></keybind>
+	#always on top
+	<keybind key="W-z"><action name="ToggleAlwaysOnTop"/></keybind>
+	#toggle decorations
+	<keybind key="A-W-x"><action name="ToggleDecorations"/></keybind>
+	#Resize 
+	<keybind key="W-r"><action name="Resize"/></keybind>
+	#iconify
+	<keybind key="W-n"><action name="Iconify"/></keybind>
+<!-- Sorciatoie lanciatori -->
+	<keybind key="W-l"><action name="Execute"><command>luakit</command><startupnotify><enabled>yes</enabled><name>Web Browser</name></startupnotify></action></keybind>
+	<keybind key="W-w"><action name="Execute"><command>chromium</command><startupnotify><enabled>yes</enabled><name>Web Browser</name></startupnotify></action></keybind>
+	<keybind key="W-b"><action name="Execute"><command>firefox</command><startupnotify><enabled>yes</enabled><name>Web Browser</name></startupnotify></action></keybind>
+	<keybind key="W-q"><action name="Execute"><command>xkill</command><startupnotify><enabled>yes</enabled><name>Kill an application</name></startupnotify></action></keybind>
+	<keybind key="W-space"><action name="ShowMenu"><menu>root-menu</menu></action></keybind>
+	<keybind key="A-Up"><action name="Execute"><command>amixer set Master 5%+ unmute</command></action></keybind>
+	<keybind key="A-Down"><action name="Execute"><command>amixer set Master 5%- unmute</command></action></keybind>
+	<keybind key="W-Return"><action name="Execute"><startupnotify><enabled>true</enabled><name>xfce4-terminal</name></startupnotify><command>xfce4-terminal --drop-down</command></action></keybind>
+	<keybind key="W-t"><action name="Execute"><startupnotify><enabled>true</enabled><name>lxterminal</name></startupnotify><command>lxterminal</command></action></keybind>
+	<keybind key="W-f"><action name="Execute"><startupnotify><enabled>true</enabled><name>thunar</name></startupnotify><command>thunar</command></action></keybind>
+	<keybind key="W-s"><action name="Execute"><startupnotify><enabled>true</enabled><name>synapse</name></startupnotify><command>synapse</command></action></keybind>
+	<keybind key="W-m"><action name="Execute"><startupnotify><enabled>true</enabled><name>dmenu</name></startupnotify><command>dmenu_run -fn -misc-fixed-*-*-*-*-20-200-*-*-*-*-*-*  -i -nf 'gray' -sb 'dark green' -nb 'dim gray'</command></action></keybind>
+	<keybind key="W-x"><action name="Execute"><startupnotify><enabled>true</enabled><name>oblogout</name></startupnotify><command>oblogout</command></action></keybind>
+	<keybind key="Print"><action name="Execute"><startupnotify><enabled>true</enabled><name>gnome-screenshot</name></startupnotify><command>gnome-screenshot</command></action></keybind>
+	<keybind key="XF86MonBrightnessUp"><action name="Execute"><command>xbacklight +10</command></action></keybind>
+	<keybind key="XF86MonBrightnessDown"><action name="Execute"><command>xbacklight -10</command></action></keybind>
+<!-- Where installing pulse-audio instead, change 'amixer set' to 'amixer -D pulse set' -->
+	<keybind key="XF86AudioRaiseVolume"><action name="Execute"><command>amixer set Master 10%+</command></action></keybind>
+<!-- Where installing pulse-audio instead, change 'amixer set' to 'amixer -D pulse set' -->
+<!-- Where installing pulse-audio instead, nothing needs to be changed -->	
+	<keybind key="XF86AudioMute"><action name="Execute"><command>amixer set Master toggle</command></action></keybind><!-- Scorciatioe personali -->
   </keyboard>
   <mouse>
 	  <dragThreshold>1</dragThreshold>
