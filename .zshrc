@@ -26,7 +26,7 @@ bindkey "^R" history-incremental-search-backward
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 
-TERM=xterm-256color
+TERM=screen-256color
 alias t="task"
 alias ta="task add"
 alias tl="task list"

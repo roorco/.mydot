@@ -1,13 +1,15 @@
 " Begin .vimrc
 
-syntax on
+execute pathogen#infect()
+syntax enable
+set t_Co=256
+
 "set nocompatible
 set bs=2
 set columns=80
 set background=dark
 set wrapmargin=8
 set ruler
-execute pathogen#infect()
 highlight Cursor guifg=white guibg=black
 highlight iCursor guifg=white guibg=steelblue
 set guicursor=n-v-c:block-Cursor
@@ -16,8 +18,7 @@ set guicursor+=n-v-c:blinkon175
 set guicursor+=i:blinkwait175
 
 if $TERM =~ "-256color"
-  set t_Co=256
-  "colorscheme solarized
+  set background=light 
 endif
 
 set viminfo='25,\"50,n~/.viminfo

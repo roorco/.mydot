@@ -10,7 +10,7 @@ PS1='[\u@\h \W]\$ '
 export PS1='\[\033[01;32m\]\u@\h \[\033[00;31m\]\W \$ \[\033[00m\]'
 export EDITOR=vim
 
-TERM=xterm-256color
+TERM=screen-256color
 alias t="task"
 alias ta="task add"
 alias tl="task list"
