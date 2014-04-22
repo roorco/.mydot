@@ -27,7 +27,7 @@
 color normal        cyan	    default         
 color error         red             default         
 color tilde         white           default         
-color message       cyan            default         
+color message       brightblue      default         
 color markers       brightblue      black           
 color attachment    cyan            default         
 color search        brightmagenta   default         
@@ -35,7 +35,7 @@ color search        brightmagenta   default
 #color status        J_black         J_status        
 color status        brightblue      white           
 color indicator     brightwhite     yellow          
-color tree          yellow          default                                     # arrow in threads
+color tree          cyan         default                                     # arrow in threads
 
 # basic monocolor screen
 mono  bold          bold
@@ -77,11 +77,11 @@ color index         brightgreen     default         "~N~v~(~N)"                 
 # statusbg used to indicated flagged when foreground color shows other status
 # for collapsed thread
 color index         red             white           "~v~(~F)!~N"                # collapsed thread with flagged, no unread
-color index         brightgreen     white           "~v~(~F~N)"                 # collapsed thread with some unread & flagged
+color index         green     white           "~v~(~F~N)"                 # collapsed thread with some unread & flagged
 color index         green           white           "~N~v~(~F~N)"               # collapsed thread with unread parent & flagged
 color index         green           white           "~N~v~(~F)"                 # collapsed thread with unread parent, no unread inside, but some flagged
 color index         cyan            white           "~v~(~p)"                   # collapsed thread with unread parent, no unread inside, some to me directly
-color index         yellow          red             "~v~(~D)"                   # thread with deleted (doesn't differentiate between all or partial)
+color index         green          red             "~v~(~D)"                   # thread with deleted (doesn't differentiate between all or partial)
 #color index         yellow          default         "~(~N)"                    # messages in threads with some unread
 #color index         green           default         "~S"                       # superseded messages
 #color index         red             default         "~T"                       # tagged messages

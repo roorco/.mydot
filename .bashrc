@@ -120,6 +120,9 @@ alias pacro="/usr/bin/pacman -Qtdq > /dev/null && sudo /usr/bin/pacman -Rns \$(/
 alias irsi='bash ~/bin/irssi'
 #make sure extglob is enabled for extract script
 shopt -s extglob
+#alias per skype
+alias skyped='skype && skyped &'
+
 # cd and ls in one
 cl() {
     dir=$1
@@ -131,24 +134,6 @@ cl() {
         ls
     else
         echo "bash: cl: '$dir': Directory not found"
-    fi
-}
-#simple note taker
-note () {
-    # if file doesn't exist, create it
-    if [[ ! -f $HOME/.notes ]]; then
-        touch "$HOME/.notes"
-    fi
-
-    if ! (($#)); then
-        # no arguments, print file
-        cat "$HOME/.notes"
-    elif [[ "$1" == "-c" ]]; then
-        # clear file
-        > "$HOME/.notes"
-    else
-        # add all arguments to file
-        printf "%s\n" "$*" >> "$HOME/.notes"
     fi
 }
 

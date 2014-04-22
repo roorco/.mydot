@@ -1,5 +1,5 @@
 ------------------------------------------
-radio3
+https://www.facebook.com/feeds/notifications.php?id=100003592414854&viewer=100003592414854&key=AWiN-yBK8oMo_Hnw&format=rss20
 ------------------------------------------
 http://www.radio.rai.it/radio3/podcast/rssradio3.jsp?id=3810
 http://www.radio.rai.it/radio3/podcast/rssradio3.jsp?id=9905
@@ -7,20 +7,14 @@ http://www.radio.rai.it/radio3/podcast/rssradio3.jsp?id=3030
 http://www.radio.rai.it/radio3/podcast/rssradio3.jsp?id=4017
 http://www.radio.rai.it/radio3/podcast/rssradio3.jsp?id=272
 http://www.grr.rai.it/dl/grr/rss/ContentSet-33fbfd27-0a1f-40ef-ad6b-8f1454c6aaf6.rss
--------------------------------------------
-musica
 ------------------------------------------
 http://www.wnyc.org/feeds/channels/newsounds/new-sounds-podcasts
-------------------------------------------
-news
 ------------------------------------------
 http://feeds.ilpost.it/ilpost/
 http://www.internazionale.it/subscribe/superblog/
 http://www.internazionale.it/subscribe/backstage/
 http://www.ilfattoquotidiano.it/feed
 http://feeds.theguardian.com/theguardian/world/rss
-------------------------------------------
-tech,arch,art
 ------------------------------------------
 http://feeds.gawker.com/io9/full
 http://www.wired.it/feed/
@@ -38,8 +32,6 @@ http://walkart.wordpress.com/feed/
 http://www.worldarchitecturenews.com/index.php?fuseaction=wanappln.projectnewsfeed
 http://www.domusweb.it/bin/domusweb/rss?country=it
 http://feeds.feedburner.com/tedtalks_audio
-------------------------------------------
-job
 ------------------------------------------
 http://archinect.com/feed/11/jobs
 http://rss.indeed.com/rss?q=art&l=New+York

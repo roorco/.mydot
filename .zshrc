@@ -116,10 +116,10 @@ alias cd..='cd ..'
 #Tmux aliases
 alias tmx="tmux -2"
 alias tmx0='tmux attach -d -t 0'
-alias tmxa='tmux attach-session -t ALL'
+alias tmxa='tmux attach -d -t ALL'
 alias tmxt='tmux attach-session -t'
-alias tmuxl='tmux list-sessions'
-alias tmuxt='tmux attach-session -t'
+alias tmxl='tmux list-sessions'
+alias tmxk='tmux kill-session -t'
 
 #jumanji alias
 alias jum="jumanji &"
@@ -152,3 +152,6 @@ export PATH=$PATH:$HOME/bin
 if [ $TERM = xterm ] ; then
 	    unset PROMPT_COMMAND
     fi
+alias brightup = xbacklight -inc 40
+alias brightdw = xbacklight -dec 40
+alias brightdw = xbacklight -dec 40

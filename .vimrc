@@ -34,6 +34,10 @@ endif
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
+"correzione ortografica
+set spelllang=it
+	"set spellfile=/home/orco/.vim/spell/it.utf-8.spl
+
 " Use ranger as vim file manager
 function! Ranger()
    " Get a temp file name without creating it

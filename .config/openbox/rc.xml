@@ -241,6 +241,8 @@
 	<keybind key="W-b"><action name="Execute"><command>firefox</command><startupnotify><enabled>yes</enabled><name>Web Browser</name></startupnotify></action></keybind>
 	<keybind key="W-q"><action name="Execute"><command>xkill</command><startupnotify><enabled>yes</enabled><name>Kill an application</name></startupnotify></action></keybind>
 	<keybind key="W-space"><action name="ShowMenu"><menu>root-menu</menu></action></keybind>
+	<keybind key="A-Left"><action name="Execute"><command>xbacklight -dec 40</command></action></keybind>
+	<keybind key="A-Right"><action name="Execute"><command>xbacklight -inc 40</command></action></keybind>
 	<keybind key="A-Up"><action name="Execute"><command>amixer set Master 5%+ unmute</command></action></keybind>
 	<keybind key="A-Down"><action name="Execute"><command>amixer set Master 5%- unmute</command></action></keybind>
 	<keybind key="W-Return"><action name="Execute"><startupnotify><enabled>true</enabled><name>xfce4-terminal</name></startupnotify><command>xfce4-terminal --drop-down</command></action></keybind>
