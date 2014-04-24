@@ -123,7 +123,9 @@ alias tmxk='tmux kill-session -t'
 
 #jumanji alias
 alias jum="jumanji &"
-
+#alias brightness
+#alias brightup = xbacklight -inc 40
+#alias brightdw = xbacklight -dec 40
 #Alias per yourt
 alias yao='sudo yaourt -S --noconfirm'
 alias yaoc='sudo yaourt -Cc --noconfirm'
@@ -152,6 +154,3 @@ export PATH=$PATH:$HOME/bin
 if [ $TERM = xterm ] ; then
 	    unset PROMPT_COMMAND
     fi
-alias brightup = xbacklight -inc 40
-alias brightdw = xbacklight -dec 40
-alias brightdw = xbacklight -dec 40
