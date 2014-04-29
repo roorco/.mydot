@@ -46,6 +46,11 @@ sed 's/_user_/'$(whoami)'/' ~/.config/obmenu-generator/config.pl -i
 ## Load udiskie per automount
 udiskie --tray &
 
+# dzen fonts
+dzen2.font:       -*-fixed-*-*-*-*-*-*-*-*-*-*-*-*
+dzen2.foreground: #22EE11
+dzen2.background: black
+
 ## Set a single desktop environment
 exec openbox-session
 #exec xfce4-session

@@ -1,0 +1,29 @@
+#!/bin/bash
+#/home/orco/bin/tmxx
+SESSIONNAME="ALL"
+tmux has-session -t $SESSIONNAME $&gt; /dev/null
+if [ $? != 0 ]
+then
+#sudo ps -ef | grep "newsbeuter" | awk '{print $2}' | xargs kill
+#sudo ps -ef | grep "weechat" | awk '{print $2}' | xargs kill
+	# new session with name $SESSIONNAME and window # 0 named "zsh"
+	tmux new-session -s $SESSIONNAME -n zsh -d /usr/bin/ranger
+
+# new window for asterisk-billing project
+tmux new-window -t $SESSIONNAME:1 -n "ranger" /usr/bin/ranger
+# new window mutt 
+tmux new-window -t $SESSIONNAME:2 -n "mutt" /usr/bin/mutt
+# new window task
+tmux new-window -t $SESSIONNAME:3 -n "task" "task shell"
+# new window weechat
+tmux new-window -t $SESSIONNAME:4 -n "weechat" /usr/bin/weechat
+# new window newsbeuter
+tmux new-window -t $SESSIONNAME:5 -n "news" /usr/bin/newsbeuter
+# new window zsh
+tmux new-window -t $SESSIONNAME:6 -n zsh 
+
+# switch the "mutt" window 
+tmux select-window -t $SESSIONNAME:2
+fi
+
+tmux attach -t $SESSIONNAME

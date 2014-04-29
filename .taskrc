@@ -145,6 +145,31 @@ report.next.filter=status:pending limit:pentry.age
 report.next.dateformat=m/d/Y
 #report.next.annotations=full
 
+# task priority
+report.priority.description=Lists the most urgent tasks
+report.priority.columns=id,project,priority,due,entry.age,description
+report.priority.labels=ID,Project,Pri,Due,Age,Description
+report.priority.sort=due+,priority+,project+
+report.priority.filter=status:pending limit:pentry.age
+report.priority.dateformat=m/d/Y
+
+## Urgency coefficient
+urgency.next.coefficient=15.0                   # +next tag
+urgency.due.coefficient=12.0                    # overdue or near due date
+urgency.blocking.coefficient=8.0                # blocking other tasks
+urgency.priority.coefficient=6.0                # priority
+urgency.active.coefficient=4.0                  # already started tasks
+urgency.scheduled.coefficient=4.0               # scheduled tasks
+urgency.age.coefficient=2.0                     # Urgency coefficient for age
+urgency.annotations.coefficient=1.0             # has annotations
+urgency.tags.coefficient=1.0                    # has tags
+urgency.project.coefficient=1.0                 # assigned to any project
+urgency.blocked.coefficient=-5.0                # blocked by other tasks
+urgency.waiting.coefficient=-3.0                # waiting task
+urgency.user.project.<project>.coefficient=5.0  # specific project
+urgency.user.tag.<tag>.coefficient=5.0          # specific tag
+urgency.uda.<name>.coefficient=5.0              # specific UDA
+
 #Shadow file support
 #shadow.file=/Dropbox/task/shadow.txt rc.verbose=label # Location of shadow file
 #shadow.command=conky rc.verbose=label # Task command for shadow file
