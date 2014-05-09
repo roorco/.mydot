@@ -154,7 +154,7 @@ report.priority.filter=status:pending limit:pentry.age
 report.priority.dateformat=m/d/Y
 
 ## Urgency coefficient
-urgency.next.coefficient=15.0                   # +next tag
+urgencynext.coefficient=15.0                   # +NXT tag
 urgency.due.coefficient=12.0                    # overdue or near due date
 urgency.blocking.coefficient=8.0                # blocking other tasks
 urgency.priority.coefficient=6.0                # priority

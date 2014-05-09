@@ -45,3 +45,5 @@ easystroke &
 #montare dispositivi
 (sleep 1s && udiskie) &
 
+# tiling 
+#pytyle3 &

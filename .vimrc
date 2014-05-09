@@ -3,7 +3,7 @@
 execute pathogen#infect()
 syntax enable
 set t_Co=256
-
+set noswapfile
 "set nocompatible
 set bs=2
 set columns=80

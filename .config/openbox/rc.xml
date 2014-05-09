@@ -177,22 +177,38 @@
 	<!-- 'Left', 'Middle', 'Right' -->
 	</dock>
 	<keyboard><chainQuitKey>C-g</chainQuitKey>
-	<keybind key="W-Left"><action name="DesktopLeft"><wrap>no</wrap></action></keybind>
 	<!--<keybind key="XF86PowerOff"><action name="Execute"><command>systemctl poweroff</command></action></keybind>-->
 <!-- Scorciatoie movimenti desktop-->
+	<keybind key="W-Left"><action name="DesktopLeft"><wrap>no</wrap></action></keybind>
 	<keybind key="W-Right"><action name="DesktopRight"><wrap>no</wrap></action></keybind>
-	<keybind key="W-Up"><action name="DesktopUp"><wrap>no</wrap></action></keybind>
-	<keybind key="W-Down"><action name="DesktopDown"><wrap>no</wrap></action></keybind>
-	<keybind key="S-A-Left"><action name="SendToDesktopLeft"><wrap>no</wrap></action></keybind>
-	<keybind key="S-A-Right"><action name="SendToDesktopRight"><wrap>no</wrap></action></keybind>
-	<keybind key="S-A-Up"><action name="SendToDesktopUp"><wrap>no</wrap></action></keybind>
-	<keybind key="S-A-Down"><action name="SendToDesktopDown"><wrap>no</wrap></action></keybind>
-	<keybind key="W-F1"><action name="Desktop"><desktop>1</desktop></action></keybind>
-	<keybind key="W-F2"><action name="Desktop"><desktop>2</desktop></action></keybind>
-	<keybind key="W-F3"><action name="Desktop"><desktop>3</desktop></action></keybind>
-	<keybind key="W-F4"><action name="Desktop"><desktop>4</desktop></action></keybind>
-	<keybind key="W-F5"><action name="Desktop"><desktop>5</desktop></action></keybind>
+	<keybind key="S-W-Left"><action name="SendToDesktopLeft"><wrap>no</wrap></action></keybind>
+	<keybind key="S-W-Right"><action name="SendToDesktopRight"><wrap>no</wrap></action></keybind>
+	<keybind key="W-1"><action name="Desktop"><desktop>1</desktop></action></keybind>
+	<keybind key="W-2"><action name="Desktop"><desktop>2</desktop></action></keybind>
+	<keybind key="W-3"><action name="Desktop"><desktop>3</desktop></action></keybind>
+	<keybind key="W-4"><action name="Desktop"><desktop>4</desktop></action></keybind>
+	<keybind key="W-5"><action name="Desktop"><desktop>5</desktop></action></keybind>
 <!-- Scorciatoie gestione finestre -->
+	<keybind key="A-W-Right"><action name="NextWindow"><raise>yes</raise>
+		<dialog>none</dialog><bar>no</bar>
+		<raise>yes</raise>
+		<finalactions>
+			<action name="Focus"/>
+			<action name="Raise"/>
+			<action name="unshade"/>
+		</finalactions>
+			</action></keybind>
+	<keybind key="A-W-Left">
+		<action name="PreviousWindow">
+			<dialog>none</dialog><bar>no</bar>
+			<raise>yes</raise>
+			<finalactions>
+				<action name="Focus"/>
+				<action name="Raise"/>
+				<action name="unshade"/>
+			</finalactions>	
+			</action>
+	</keybind>
 	<keybind key="W-d"><action name="ToggleShowDesktop"/></keybind>
 	<keybind key="A-F4"><action name="Close"/></keybind>
 	<keybind key="A-F3"><action name="Execute"><command>dmenu_run -fn -misc-fixed-*-*-*-*-20-200-*-*-*-*-*-*  -i -nf 'gray' -sb 'dark green'</command><startupnotify><enabled>yes</enabled><name>dmenu</name></startupnotify></action></keybind>
@@ -208,10 +224,12 @@
 	<keybind key="C-A-Left"><action name="MoveToEdgeWest"/></keybind>
 	<keybind key="C-A-Down"><action name="MoveToEdgeSouth"/></keybind>
 	<keybind key="W-h"><action name="ToggleMaximizeHorz"/></keybind>
+	<!--
 	<keybind key="A-W-Up"><action name="GrowToEdgeNorth"/></keybind>
 	<keybind key="A-W-Right"><action name="GrowToEdgeEast"/></keybind>
 	<keybind key="A-W-Down"><action name="GrowToEdgeSouth"/></keybind>
 	<keybind key="A-W-Left"><action name="GrowToEdgeWest"/></keybind>
+	-->
 	<keybind key="W-c"><action name="MoveToCenter"/></keybind>
 	<keybind key="W-S-Down"><action name="DirectionalCycleWindows"><direction>down</direction></action></keybind>
 	<keybind key="W-S-Up"><action name="DirectionalCycleWindows"><direction>up</direction></action></keybind>
@@ -236,13 +254,13 @@
 	#iconify
 	<keybind key="W-n"><action name="Iconify"/></keybind>
 <!-- Sorciatoie lanciatori -->
-	<keybind key="W-l"><action name="Execute"><command>luakit</command><startupnotify><enabled>yes</enabled><name>Web Browser</name></startupnotify></action></keybind>
+	<keybind key="W-l"><action name="Execute"><command>xscreensaver-command -lock</command></action></keybind>
 	<keybind key="W-w"><action name="Execute"><command>chromium</command><startupnotify><enabled>yes</enabled><name>Web Browser</name></startupnotify></action></keybind>
 	<keybind key="W-b"><action name="Execute"><command>firefox</command><startupnotify><enabled>yes</enabled><name>Web Browser</name></startupnotify></action></keybind>
 	<keybind key="W-q"><action name="Execute"><command>xkill</command><startupnotify><enabled>yes</enabled><name>Kill an application</name></startupnotify></action></keybind>
 	<keybind key="W-space"><action name="ShowMenu"><menu>root-menu</menu></action></keybind>
-	<keybind key="W-A-Left"><action name="Execute"><command>xbacklight -dec 40</command></action></keybind>
-	<keybind key="W-A-Right"><action name="Execute"><command>xbacklight -inc 40</command></action></keybind>
+	<keybind key="A-F6"><action name="Execute"><command>xbacklight -dec 40</command></action></keybind>
+	<keybind key="A-F7"><action name="Execute"><command>xbacklight -inc 40</command></action></keybind>
 	<keybind key="A-Up"><action name="Execute"><command>amixer set Master 5%+ unmute</command></action></keybind>
 	<keybind key="A-Down"><action name="Execute"><command>amixer set Master 5%- unmute</command></action></keybind>
 	<keybind key="W-Return"><action name="Execute"><startupnotify><enabled>true</enabled><name>xfce4-terminal</name></startupnotify><command>xfce4-terminal --drop-down</command></action></keybind>
