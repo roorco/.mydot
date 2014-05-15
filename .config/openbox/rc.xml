@@ -263,7 +263,9 @@
 	<keybind key="A-F7"><action name="Execute"><command>xbacklight -inc 40</command></action></keybind>
 	<keybind key="A-Up"><action name="Execute"><command>amixer set Master 5%+ unmute</command></action></keybind>
 	<keybind key="A-Down"><action name="Execute"><command>amixer set Master 5%- unmute</command></action></keybind>
-	<keybind key="W-Return"><action name="Execute"><startupnotify><enabled>true</enabled><name>xfce4-terminal</name></startupnotify><command>xfce4-terminal --drop-down</command></action></keybind>
+	
+	<keybind key="W-ò"><action name="Execute"><startupnotify><enabled>true</enabled><name>xfce4-terminal</name></startupnotify><command>xfce4-terminal --drop-down</command></action></keybind>
+
 	<keybind key="W-t"><action name="Execute"><startupnotify><enabled>true</enabled><name>lxterminal</name></startupnotify><command>lxterminal</command></action></keybind>
 	<keybind key="W-f"><action name="Execute"><startupnotify><enabled>true</enabled><name>thunar</name></startupnotify><command>thunar</command></action></keybind>
 	<keybind key="W-s"><action name="Execute"><startupnotify><enabled>true</enabled><name>synapse</name></startupnotify><command>synapse</command></action></keybind>

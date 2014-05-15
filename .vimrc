@@ -3,7 +3,13 @@
 execute pathogen#infect()
 syntax enable
 set t_Co=256
-set noswapfile
+
+"set noswapfile
+"set nowritebackup 
+"set nobackup
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swp//
+
 "set nocompatible
 set bs=2
 set columns=80
@@ -16,7 +22,7 @@ set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon175
 set guicursor+=i:blinkwait175
-
+set clipboard=unnamedplus
 if $TERM =~ "-256color"
   set background=light 
 endif

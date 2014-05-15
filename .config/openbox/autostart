@@ -20,6 +20,9 @@ compton -CGb &
 #nitrogen --restore &
 sh ~/.fehbg &
 
+# guake terminal
+guake &
+
 ## Easystroke
 easystroke &
 
@@ -47,3 +50,4 @@ easystroke &
 
 # tiling 
 #pytyle3 &
+
