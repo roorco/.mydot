@@ -80,7 +80,7 @@ alias pac="/usr/bin/packer -S --noconfirm"		# default action	- install one or mo
 alias pacu="/usr/bin/packer -Syu"		# '[u]pdate'		- upgrade all packages to their newest version
 alias pacr="sudo /usr/bin/pacman -Rns"		# '[r]emove'		- uninstall one or more packages
 # '[r]emove [o]rphans' - recursively remove ALL orphaned packages
- alias pacro="pacman -Qtdq > /dev/null && sudo pacman -Rns \$(pacman -Qtdq | sed -e ':a;N;$!ba;s/\n/ /g')"
+alias pacro="sudo pacman -Rns $(pacman -Qqtd)"
 fi
 
 ## Safety features ## {{{
@@ -121,18 +121,12 @@ alias tmxt='tmux attach-session -t'
 alias tmxl='tmux list-sessions'
 alias tmxk='tmux kill-session -t'
 
-#jumanji alias
-alias jum="jumanji &"
-#alias brightness
-#alias brightup = xbacklight -inc 40
-#alias brightdw = xbacklight -dec 40
-#Alias per yourt
-alias yao='sudo yaourt -S --noconfirm'
-alias yaoc='sudo yaourt -Cc --noconfirm'
-alias yaou='sudo yaourt -Syu --aur'
-# '[r]emove [o]rphans' - recursively remove ALL orphaned packages
-alias pacro="/usr/bin/pacman -Qtdq > /dev/null && sudo /usr/bin/pacman -Rns \$(/usr/bin/pacman -Qtdq | sed -e ':a;N;$!ba;s/\n/ /g')"
-# }}}
+#abook query
+alias abookq='abook --mutt-query'
+#google contacts
+alias googlc="google contacts list"
+#}}}
+
 # cd and ls in one
 cl() {
     dir=$1

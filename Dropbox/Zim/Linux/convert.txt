@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-06-02T12:44:00-04:00
+
+====== convert ======
+#ridurre immagini
+convert input -resize geometry output

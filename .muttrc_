@@ -1,13 +1,13 @@
 #basic .muttrc for use with Gmail
 
 # Change the following six lines to match your Gmail account details
-set from = "my@mail.com"
-set imap_user = "my@mail.com"
-set imap_pass = "my_password"
-set smtp_url = "smtp://my@smtp.mail.com:587/"
-set smtp_pass = "my_password"
-set from = "my@mail.com"
-set realname = "my_name"
+set from = "email"
+set imap_user = "email"
+set imap_pass = "password"
+set smtp_url = "smtp://user@smtp.gmail.com:587/"
+set smtp_pass = "password"
+set from = "email"
+set realname = "nome"
 
 # Change the following line to a different editor you prefer.
 set editor = "vim"
@@ -25,7 +25,7 @@ set postponed = "+[GMail]/Drafts"
 #set index_format="%2C %t %N %8s %d %f"
 set index_format="%4C %Z %[!%b %d %Y] %-17.17L %c %s"
 set folder_format="%2C %t %N %8s %d %f"
-set record = "+[GMail]/Sent Mail"
+#set record = "+[GMail]/Sent Mail"
 set header_cache=~/.mutt/cache/headers
 set message_cachedir=~/.mutt/cache/bodies
 set certificate_file=~/.mutt/certificates
@@ -52,7 +52,6 @@ macro index,pager ga "<change-folder>=[Gmail]/Tutti i messaggi<enter>" "Go to al
 macro index,pager gs "<change-folder>=[Gmail]/Speciali<enter>" "Go to starred messages"
 macro index,pager gt "<change-folder>=[Gmail]/Posta inviata<enter>" "Go to sent mail"
 macro index,pager gd "<change-folder>=[Gmail]/Bozze<enter>" "Go to drafts"
-macro index,pager a "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
 # Solarized colors
 source $MAILCONF~/.mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
 
@@ -60,15 +59,23 @@ source $MAILCONF~/.mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
 set text_flowed=yes
 
 # Prendere gli indirizzi da gmail con goobook
-set query_command="goobook query '%s'"
+#set query_command=”abook --mutt-query ‘%s’”
+#macro index, pager A "abook -add-email-query" "aggiungi mittente"
+#set query_command="goobook query '%s'"
+#Ricarica goobook db
+#macro index,pager gr "!goobook reload\n" "Goobook reload"
+#macro index,pager A "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
+
+# abook configurazione (si sovrappone a goobook)
+set query_command = "abook --mutt-query '%s'"
+macro generic,index,pager \ca "<shell-escape>abook<return>" "launch abook"
+macro index,pager A "<pipe-message>abook --add-email<return>" "add the sender address to abook"
+
 
 # per usare Tab per autocompletamento
 bind editor <Tab> complete-query
-
-#Ricarica goobook db
-macro index,pager gr "!goobook reload\n" "Goobook reload"
 #Mail divise in box
-set imap_check_subscribed=yes
+set imap_check_subscribed= yes
 
 # sidebar 
 #set sidebar_visible=yes
@@ -84,11 +91,22 @@ macro pager \cu <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 #delete message
 macro index - delete-message
 
+#altre mailboxes con procmail
+mailboxes \
+$MAIL \
+=inbox \
+=newsletter \
+
+
 #per problema mailbox chiusa
 set timeout=15
 set mail_check=90
-set imap_keepalive=180
+set imap_keepalive=9000
 set imap_idle
 
+# Securing
+set move = no 
+
+set signature="~/.signature"
 auto_view text/html 				# view html automatically
 alternative_order text/plain text/enriched text/html 	# save html for last
