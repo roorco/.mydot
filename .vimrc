@@ -10,7 +10,10 @@ set t_Co=256
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swp//
 
-"set nocompatible
+"set nocompatible (non ricordo a cosa serva)
+
+"Per mostrare i numeri delle line
+set number
 set bs=2
 set columns=80
 set background=dark

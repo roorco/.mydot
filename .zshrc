@@ -11,7 +11,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-
+#
+#PATH per $mail
+MAIL=~/.mail
+mailpath=($mail/roorco/inbox/)
+MAILCHECK=3
 # vi key mode
 bindkey -v
 bindkey "\e[3~" delete-char

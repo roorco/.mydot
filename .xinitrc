@@ -53,6 +53,8 @@ dzen2.background: black
 
 ## Set a single desktop environment
 exec openbox-session
+#exec i3
+#exec i3 -V >> ~/.i3/i3log 2>&1
 #exec xfce4-session
 #exec gnome-session
 #exec startkde
