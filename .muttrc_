@@ -45,13 +45,20 @@ bind editor ^T complete
 bind editor <space> noop 
 
 # Gmail-style keyboard shortcuts
-macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
-macro index,pager d "<enter-command>set trash=\"imaps://imap.googlemail.com/[GMail]/Bin\"\n <delete-message>" "Gmail delete message"
-macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
-macro index,pager ga "<change-folder>=[Gmail]/Tutti i messaggi<enter>" "Go to all mail"
-macro index,pager gs "<change-folder>=[Gmail]/Speciali<enter>" "Go to starred messages"
-macro index,pager gt "<change-folder>=[Gmail]/Posta inviata<enter>" "Go to sent mail"
-macro index,pager gd "<change-folder>=[Gmail]/Bozze<enter>" "Go to drafts"
+#macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+#macro index,pager d "<enter-command>set trash=\"imaps://imap.googlemail.com/[GMail]/Bin\"\n <delete-message>" "Gmail delete message"
+#macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
+#macro index,pager ga "<change-folder>=[Gmail]/Tutti i messaggi<enter>" "Go to all mail"
+#macro index,pager gs "<change-folder>=[Gmail]/Speciali<enter>" "Go to starred messages"
+#macro index,pager gt "<change-folder>=[Gmail]/Posta inviata<enter>" "Go to sent mail"
+#macro index,pager gd "<change-folder>=[Gmail]/Bozze<enter>" "Go to drafts"
+
+# Macro per cambiare mailbox
+macro index gi  "<change-folder>~/.mail/roorco/inbox/<enter>"
+macro index gt  "<change-folder>~/.mail/roorco/sent<enter>"
+macro index gp "l ~p <enter>"
+macro index gn "l ~U <enter>"
+macro index gl "l !~C roorco !~C ro.dellorco !~f roorco | ~f comuneinfo | ~f parcoartevivente<enter>"
 # Solarized colors
 source $MAILCONF~/.mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
 
@@ -60,7 +67,6 @@ set text_flowed=yes
 
 # Prendere gli indirizzi da gmail con goobook
 #set query_command=”abook --mutt-query ‘%s’”
-#macro index, pager A "abook -add-email-query" "aggiungi mittente"
 #set query_command="goobook query '%s'"
 #Ricarica goobook db
 #macro index,pager gr "!goobook reload\n" "Goobook reload"
@@ -75,7 +81,7 @@ macro index,pager A "<pipe-message>abook --add-email<return>" "add the sender ad
 # per usare Tab per autocompletamento
 bind editor <Tab> complete-query
 #Mail divise in box
-set imap_check_subscribed= yes
+set imap_check_subscribed=yes
 
 # sidebar 
 #set sidebar_visible=yes
@@ -91,13 +97,6 @@ macro pager \cu <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 #delete message
 macro index - delete-message
 
-#altre mailboxes con procmail
-mailboxes \
-$MAIL \
-=inbox \
-=newsletter \
-
-
 #per problema mailbox chiusa
 set timeout=15
 set mail_check=90
@@ -110,3 +109,12 @@ set move = no
 set signature="~/.signature"
 auto_view text/html 				# view html automatically
 alternative_order text/plain text/enriched text/html 	# save html for last
+
+# IMAP: offlineimap
+set folder = "~/.mail"
+source ~/.mutt/mailboxes
+set spoolfile = "+/roorco/inbox"
+set record = "+/roorco/sent/new/spedite"
+set postponed = "+/roorco/drafts"
+
+set mark_old=no
