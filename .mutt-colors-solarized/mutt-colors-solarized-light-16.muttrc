@@ -29,7 +29,7 @@ color error         red             default
 color tilde         green          default         
 color message       yellow         default         
 color markers       brightblack     default           
-color attachment    brightgreen      default         
+color attachment    brightmagenta   default         
 color search        brightmagenta   default         
 
 #color status        J_black         J_status        
