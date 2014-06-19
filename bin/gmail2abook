@@ -1,0 +1,7 @@
+#!/bin/bash
+cp ~/.abook/addressbook ~/.abook/addressbook_bkp &
+rm ~/.abook/addressbook &
+google contacts list "[:allnum]" | sort | \
+abook --convert --informat csv --outformat abook \
+--outfile ~/.abook/addressbook
+exit

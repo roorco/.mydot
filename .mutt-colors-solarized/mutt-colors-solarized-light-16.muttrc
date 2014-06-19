@@ -44,12 +44,13 @@ mono  indicator     reverse
 mono  error         bold
 
 # index ----------------------------------------------------------------
-color index	magenta		default		"~C ro.dellorco"
-color index	brightmagenta	default		"~N~C ro.dellorco"
-color index	cyan		default		"~C roorco"
-color index	brightcyan	default		'~N~C ^roorco'
-color index     blue 		default         "!~C roorco !~C ro.dellorco" 
-color index     brightblue 	default         "~N!~C roorco !~C ro.dellorco" 
+color index	blue 		default		"~C ro.dellorco | ~C ilmotorediricerca" # messaggi a ro.dellorco
+color index	brightblue	default		"~N(~C ro.dellorco | ~C ilmotorediricerca)" # nuovi a ro.dellorco
+color index	cyan		default		"~C roorco" # messaggi a roorco
+color index	brightcyan	default		"~N~C roorco" # nuovi a roorco
+color index     magenta		default         "!~C roorco !~C ro.dellorco | ~f comune | ~f fonderie" 
+#
+color index     brightmagenta 	default         "~N(!~C roorco !~C ro.dellorco | ~f comune | ~f fonderie)" 
 color index     brightblack	default         "~P" # messages from me
 color index     brightred       default         "~N~F" # new flagged messages
 color index     red             default         "~F" # flagged messages
