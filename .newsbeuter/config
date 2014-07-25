@@ -1,7 +1,7 @@
 player mplayer2
 download-path /home/orco/MUS/podcast
 max-downloads 3
-browser luakit
+browser firefox
 save-path ~/DOC/feed
 #delete-read-articles-on-quit yes
 macro x set browser "links %u"; open ; set browser "luakit %u"

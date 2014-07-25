@@ -1,0 +1,4 @@
+#!/bin/bash
+rsync -aAXv /* --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/var/lib/pacman/sync/*,/home/bkp30/*,/home/bkp7/*} / /home/bkp7/
+exit
+

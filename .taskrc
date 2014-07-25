@@ -54,7 +54,6 @@ report.ls.sort=due+,priority-,project+
 report.ls.filter=status:pending
 report.ls.filter=status:pending
 report.ls.dateformat=b.d
-report.ls.annotations= none
 
 # task minimal
 report.minimal.description=A really minimal listing
@@ -63,7 +62,6 @@ report.minimal.labels=ID,Project,Description
 report.minimal.sort=project+,description+
 report.minimal.filter=status:pending
 report.minimal.dateformat=m/d/Y
-report.minimal.annotations=sparse
 
 # task newest
 report.newest.description=Shows the newest tasks
@@ -137,12 +135,12 @@ report.all.dateformat=m/d/Y
 #report.all.annotations=full
 
 # task next
-report.next.description=Lists the most urgent tasks
-report.next.columns=id,project,priority,due,entry.age,description
-report.next.labels=ID,Project,Pri,Due,Age,Description
-report.next.sort=due+,priority-,project+
-report.next.filter=status:pending limit:pentry.age
-report.next.dateformat=m/d/Y
+#report.next.description=Lists the most urgent tasks
+#report.next.columns=id,project,priority,due,entry.age,description
+#report.next.labels=ID,Project,Pri,Due,Age,Description
+#report.next.sort=due+,priority-,project+
+#report.next.filter=status:pending limit:pentry.age
+#report.next.dateformat=m/d/Y
 #report.next.annotations=full
 
 # task priority
@@ -181,14 +179,7 @@ report.conky.columns=project,description.truncated,depends.indicator,priority
 report.conky.labels=Project,Desc,D,P
 report.conky.sort=due+,project+,priority+
 report.conky.filter=status:pending limit:page
-#report.conky.description=Tasklist for Conky
-#report.conky.color=on
-#report.conky.columns=due,project,priority,description.truncated
-#report.conky.labels=Project,Desc
-#report.conky.sort=due+,project+,priority+
-report.conky.limit=10
 report.conky.dateformat=m/d
-report.conky.annotations=none
 
 # Color theme (uncomment one to use)
 #include /usr/local/share/doc/task/rc/light-16.theme
@@ -209,3 +200,6 @@ curses=on
 defaultwidth=80
 uda.estimate.type=numeric
 uda.estimate.label=Est
+urgency.user.tag.dopo.coefficient=-6.0
+urgency.user.tag.later.coefficient=-6.0
+urgency.user.tag.wait.coefficient=-6.0

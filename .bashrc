@@ -3,6 +3,7 @@
 #
 #set $mail enviroment variable
 export $MAIL = ~/.mail
+export MAILDIR = ~/.mail
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return

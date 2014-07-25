@@ -34,7 +34,7 @@ color search        brightmagenta   default
 
 #color status        J_black         J_status        
 #color status        brightblue      white           
-color indicator     white   	    green          
+color indicator     black	   yellow          
 color tree          yellow         default  # arrow in threads
 
 # basic monocolor screen
@@ -44,17 +44,21 @@ mono  indicator     reverse
 mono  error         bold
 
 # index ----------------------------------------------------------------
-color index	blue 		default		"~C ro.dellorco | ~C ilmotorediricerca" # messaggi a ro.dellorco
-color index	brightblue	default		"~N(~C ro.dellorco | ~C ilmotorediricerca)" # nuovi a ro.dellorco
-color index	cyan		default		"~C roorco" # messaggi a roorco
-color index	brightcyan	default		"~N~C roorco" # nuovi a roorco
-color index     magenta		default         "!~C roorco !~C ro.dellorco | ~f comune | ~f fonderie" 
+color index	cyan 		default		"~C ro.dellorco | ~C ilmotorediricerca" # messaggi a ro.dellorco
+color index	brightcyan	default		"~N(~C ro.dellorco | ~C ilmotorediricerca)" # nuovi a ro.dellorco
+color index	white		default		"~C roorco" # messaggi a roorco
+color index	brightblue 	default		"~N~C roorco" # nuovi a roorco
+color index     magenta		default         "!~C roorco !~C ro.dellorco | ~f comune | ~f fonderie | ~y MailChimp" 
 #
 color index     brightmagenta 	default         "~N(!~C roorco !~C ro.dellorco | ~f comune | ~f fonderie)" 
-color index     brightblack	default         "~P" # messages from me
-color index     brightred       default         "~N~F" # new flagged messages
+color index     blue		default         "~y MailChimp" 
+#
+color index     yellow 		default         "~P" # messages from me
+color index     brightyellow 	default         "~N~P" # new messages from me
 color index     red             default         "~F" # flagged messages
+color index     brightred       default         "~N~F" # new flagged messages
 color index     white           red             "~D"  # deleted messages
+#color index    brightmagenta    default         "~O"	# old messages
 #color index    green		default         "~Q" # messages that have been replied to
 #color index    brightyellow    default         "~N~p!~F" #new messages to me
 #color index    brightblue       default         "~N" # new messages
@@ -62,7 +66,6 @@ color index     white           red             "~D"  # deleted messages
 #color index    brightblue       default         "~A~N!~T!~p!~Q!~F!~D" # the rest, new
 #color index    yellow		 default         "~p!~F" # messages to me
 #color index    yellow           default         "~R~p!~F" # messages to me
-#color index    brightmagenta    default         "~O"	# old messages
 #color index    red              default         "~F~p" # flagged messages to me
 #color index    red              default         "~D(!~p|~p)" # deleted
 #color index    brightblue  	 default    	  "~=" # duplicate messages
@@ -95,16 +98,16 @@ color index     white           red             "~D"  # deleted messages
 
 color header        brightblack      default         "^"
 color hdrdefault    blue	    default         
-color header        brightcyan	    default         "^(From)"
-color header        brightgreen	    default         "^(Subject)"
+color header        white	    default         "^(From)"
+color header        brightwhite	    default         "^(Subject)"
 
 # body -----------------------------------------------------------------
 
-color quoted        blue	    default         
-color quoted1       cyan            default         
-color quoted2       green	    default         
-color quoted3       magenta	    default         
-color quoted4       yellow          default         
+color quoted        cyan            default         
+color quoted1       green	    default         
+color quoted2       magenta	    default         
+color quoted3       cyan            default         
+color quoted4       green	    default         
 
 color signature     brightblack     default         
 color bold          yellow          default         

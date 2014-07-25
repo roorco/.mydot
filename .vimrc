@@ -15,7 +15,7 @@ set directory=~/.vim/swp//
 "Per mostrare i numeri delle line
 set number
 set bs=2
-set columns=80
+set columns=160
 set background=dark
 set wrapmargin=8
 set ruler

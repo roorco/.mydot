@@ -5,19 +5,20 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
 
 # Customize to your needs...
-#
+
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
 #PATH per $mail
-MAIL=~/.mail
-mailpath=($mail/roorco/inbox/)
-MAILCHECK=3
+#MAIL=~/.mail
+#mailpath=($mail/roorco/inbox/)
 # vi key mode
-bindkey -v
+#bindkey -v
 bindkey "\e[3~" delete-char
 bindkey "^R" history-incremental-search-backward
 
@@ -125,8 +126,6 @@ alias tmxt='tmux attach-session -t'
 alias tmxl='tmux list-sessions'
 alias tmxk='tmux kill-session -t'
 
-#abook query
-alias abookq='abook --mutt-query'
 #google contacts
 alias googlc="google contacts list"
 #}}}
@@ -145,10 +144,16 @@ cl() {
     fi
 }
 
-# /home/bin in $PATH
+# enviroment variable for gpg-agent
+#if [ -f "${HOME}/.gpg-agent-info" ]; then
+#    . "${HOME}/.gpg-agent-info"
+#    export GPG_AGENT_INFO
+#fi
+
+#/home/bin in $PATH
 export PATH=$PATH:$HOME/bin
 
 #cambia dinamicamente nome al terminale
-if [ $TERM = xterm ] ; then
-	    unset PROMPT_COMMAND
-    fi
+#if [ $TERM = xterm ] ; then
+#	    unset PROMPT_COMMAND
+#    fi

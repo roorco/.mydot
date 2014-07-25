@@ -1,0 +1,169 @@
+#basic .muttrc for use with Gmail
+#
+#
+
+# Paths ----------------------------------------------
+set folder           = ~/.mail               # mailbox location
+set alias_file       = ~/.mutt/alias         # where to store aliases
+set header_cache     = ~/.mutt/cache/headers # where to store headers
+set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
+set certificate_file = ~/.mutt/certificates  # where to store certs
+set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
+set tmpdir           = ~/.mutt/temp          # where to keep temp files
+set signature        = ~/.mutt/signature     # my signature file
+
+# il file in cui sono contenute le mie password criptate
+source "gpg2 -dq $HOME/.my_pwds.gpg |"
+# Change the following six lines to match your Gmail account details
+set from = "roorco@gmail.com"
+set imap_user = "roorco@gmail.com"
+set imap_pass = $my_pw_personal
+set smtp_url = "smtp://roorco@smtp.gmail.com:587/"
+set smtp_pass = $my_pw_personal
+set from = "roorco@gmail.com"
+set realname = "Roberto dell'Orco"
+
+# Change the following line to a different editor you prefer.
+set editor = "vim"
+
+# Basic config, you can leave this as is
+# set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set imap_check_subscribed
+set hostname = gmail.com
+set mail_check = 120
+set timeout = 300
+set imap_keepalive = 300
+set postponed = "+[GMail]/Drafts"
+#set index_format="%4C %Z %D %-15.15L %s"
+#set index_format="%2C %t %N %8s %d %f"
+set index_format="%4C %Z %[!%b %d %Y] %-17.17L %c %s"
+set folder_format="%2C %t %N %8s %d %f"
+#set record = "+[GMail]/Sent Mail"
+set move = no
+set include
+set sort = 'reverse-threads'
+set sort_browser = 'reverse-date'
+set sort_aux = 'last-date-received'
+set auto_tag = yes
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+alternative_order text/plain text/html *
+auto_view text/html
+bind editor <Tab> complete-query
+bind editor ^T complete
+bind editor <space> noop 
+
+
+# Macro per cambiare mailbox
+macro index gi  "<change-folder>~/.mail/roorco/inbox/<enter>"
+macro index gT  "<change-folder>~/.mail/roorco/sent<enter>"
+macro index gt  "<change-folder>~/.mail/roorco/sent/spedite<enter>"
+macro index gl  "<change-folder>~/.mail/roorco/list<enter>"
+macro index gp "l ~p <enter>"
+macro index gn "l ~U <enter>"
+#macro index gl "l !~C roorco !~C ro.dellorco !~f roorco | ~f comuneinfo | ~f parcoartevivente<enter>"
+
+# Mu
+# # mutt macros for mu
+macro index <F8> "<shell-escape>mu find --clearlinks --format=links --linksdir=~/Mail/search " \
+		"mu find"
+macro index <F9> "<change-folder-readonly>~/Mail/search<return>" \
+		"mu find results"
+
+# Solarized colors
+source $MAILCONF~/.mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
+
+# Serve a togliere brutti segni tra una riga e l'altra del messaggio inviato
+set text_flowed=yes
+
+# Prendere gli indirizzi da gmail con goobook
+#set query_command=”abook --mutt-query ‘%s’”
+#set query_command="goobook query '%s'"
+#Ricarica goobook db
+#macro index,pager gr "!goobook reload\n" "Goobook reload"
+macro index,pager A "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
+
+# abook configurazione (si sovrappone a goobook)
+set query_command = "abook --mutt-query '%s'"
+macro generic,index,pager \ca "<shell-escape>abook<return>" "launch abook"
+macro index,pager a "<pipe-message>abook --add-email<return>" "add the sender address to abook"
+
+# per usare Tab per autocompletamento
+bind editor <Tab> complete-query
+#Mail divise in box
+
+## Sidebar 
+set sidebar_visible=yes
+set sidebar_width=30
+#set sidebar_sort = yes
+set sidebar_shortpath = yes
+color sidebar_new color221 color233
+set sidebar_width   = 24
+# Status Bar -----------------------------------------
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+# Ctrl-n, Ctrl-p to select next, previous folder.
+# Ctrl-o to open selected folder.
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+macro index i '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager i '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+
+## Mailboxes
+mailboxes  =/roorco/inbox =/roorco/list =roorco/facebook =/roorco/important =/roorco/sent/spedite =/roorco/spam =/roorco/trash   
+#mailboxes imaps://imap.gmail.com/INBOX imaps://imap.gmail.com/List
+
+#group reply
+bind index,pager,attach G group-reply
+
+
+#per problema mailbox chiusa
+set timeout=15
+set mail_check=90
+set imap_keepalive=9000
+set imap_idle
+
+# Securing
+set move = no 
+
+auto_view text/html 				# view html automatically
+alternative_order text/plain text/enriched text/html 	# save html for last
+
+# IMAP: offlineimap
+set folder = $HOME/.mail
+source ~/.mutt/mailboxes
+set spoolfile = "+/roorco/inbox"
+set record = "+/roorco/sent/spedite"
+#set record = "imaps://imap.gmail.com:993/Sent"
+set postponed = "+/roorco/drafts"
+
+set mark_old=no
+
+# Encrypt con Gnugpg
+source ~/.mutt/gpg.rc
+source ~/.mutt/crypto
+
+bind compose p  pgp-menu
+macro compose Y pfy "send mail without GPG"
+
+# Gmail-style keyboard shortcuts
+macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+#macro index,pager d "<enter-command>set trash=\"imaps://imap.googlemail.com/[GMail]/Bin\"\n <delete-message>" "Gmail delete message"
+#macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
+#macro index,pager ga "<change-folder>=[Gmail]/Tutti i messaggi<enter>" "Go to all mail"
+#macro index,pager gs "<change-folder>=[Gmail]/Speciali<enter>" "Go to starred messages"
+#macro index,pager gt "<change-folder>=[Gmail]/Posta inviata<enter>" "Go to sent mail"
+#macro index,pager gd "<change-folder>=[Gmail]/Bozze<enter>" "Go to drafts"
+
+#urlview
+#macro index \cu |urlview\n
+#macro pager \cu |urlview\n
+macro pager \cu <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+#delete message
+macro index - delete-message
+#macro pager \cb <pipe-entry>'w3m'<enter> 'Follow links in w3m' 
+

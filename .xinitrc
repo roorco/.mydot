@@ -43,6 +43,9 @@ sed 's/_user_/'$(whoami)'/' ~/.config/obmenu-generator/config.pl -i
 ## Enable multiple desktop environments
 #exec $1
 
+# Script per la Dbus session, cerco di far funzionare il keyring in offlineimap
+exec ~/bin/export_x_info.sh &
+
 ## Load udiskie per automount
 udiskie --tray &
 
@@ -62,3 +65,4 @@ exec openbox-session
 #exec razor-session
 #exec lxsession
 #exec mate-session
+
