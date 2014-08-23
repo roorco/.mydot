@@ -11,19 +11,14 @@
 
 ## Ensure that the D-Bus Communication System is running properly to fix
 ## File management, authentication, and other essential system processes
-
 if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
     eval "$(dbus-launch --sh-syntax --exit-with-session)"
 fi
 
-
 ## Ensure that GTK themes are applied uniformly in the Desktop Environment
-
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0" 
 
-
 ## Where the default Home folders have not already been created, generate them
-
 if [ -x /usr/bin/xdg-user-dirs-update ]; then
    /usr/bin/xdg-user-dirs-update
 fi
@@ -44,15 +39,19 @@ sed 's/_user_/'$(whoami)'/' ~/.config/obmenu-generator/config.pl -i
 #exec $1
 
 # Script per la Dbus session, cerco di far funzionare il keyring in offlineimap
-exec ~/bin/export_x_info.sh &
+# exec ~/bin/export_x_info.sh &
 
-## Load udiskie per automount
-udiskie --tray &
 
-# dzen fonts
+
+# Start some programs
+
+udiskie --tray & ## Load udiskie per automount
+exec ~/bin/mailnotify & # mailnotify
+
 dzen2.font:       -*-fixed-*-*-*-*-*-*-*-*-*-*-*-*
 dzen2.foreground: #22EE11
 dzen2.background: black
+
 
 ## Set a single desktop environment
 exec openbox-session

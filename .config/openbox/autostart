@@ -24,7 +24,7 @@ sh ~/.fehbg &
 guake &
 
 ## Easystroke
-easystroke &
+#easystroke &
 
 ## Panel
 (sleep 1s && tint2) &
@@ -42,12 +42,6 @@ easystroke &
 ## Optionally disable touchpad
 #/usr/bin/synclient TouchpadOff=1 &
 
-#skype per bitlbee
-#skyped &
-
 #montare dispositivi
 (sleep 1s && udiskie) &
-
-# tiling 
-#pytyle3 &
 

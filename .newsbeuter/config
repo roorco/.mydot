@@ -3,7 +3,7 @@ download-path /home/orco/MUS/podcast
 max-downloads 3
 browser firefox
 save-path ~/DOC/feed
-#delete-read-articles-on-quit yes
+delete-read-articles-on-quit yes
 macro x set browser "links %u"; open ; set browser "luakit %u"
 macro l set browser "luakit %u"
 macro i set browser "feh %u"; open ; set browser "luakit %u"

@@ -1,10 +1,9 @@
 #basic .muttrc for use with Gmail
-#
-#
 
 # Paths ----------------------------------------------
 set folder           = ~/.mail               # mailbox location
 set alias_file       = ~/.mutt/alias         # where to store aliases
+source ~/.mutt/alias
 set header_cache     = ~/.mutt/cache/headers # where to store headers
 set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
 set certificate_file = ~/.mutt/certificates  # where to store certs
@@ -28,7 +27,7 @@ set editor = "vim"
 
 # Basic config, you can leave this as is
 # set folder = "imaps://imap.gmail.com:993"
-set spoolfile = "+INBOX"
+#set spoolfile = "+INBOX"
 set imap_check_subscribed
 set hostname = gmail.com
 set mail_check = 120
@@ -50,27 +49,24 @@ ignore "Authentication-Results:"
 ignore "DomainKey-Signature:"
 ignore "DKIM-Signature:"
 hdr_order Date From To Cc
-alternative_order text/plain text/html *
+alternative_order text/plain text/enriched text/html 	# save html for last
 auto_view text/html
 bind editor <Tab> complete-query
 bind editor ^T complete
 bind editor <space> noop 
 
 
-# Macro per cambiare mailbox
+## Macro per cambiare mailbox
 macro index gi  "<change-folder>~/.mail/roorco/inbox/<enter>"
 macro index gT  "<change-folder>~/.mail/roorco/sent<enter>"
-macro index gt  "<change-folder>~/.mail/roorco/sent/spedite<enter>"
+macro index gt  "<change-folder>~/.mail/roorco/spedite<enter>"
 macro index gl  "<change-folder>~/.mail/roorco/list<enter>"
-macro index gp "l ~p <enter>"
-macro index gn "l ~U <enter>"
-#macro index gl "l !~C roorco !~C ro.dellorco !~f roorco | ~f comuneinfo | ~f parcoartevivente<enter>"
+bind index,pager \CL next-unread-mailbox
 
-# Mu
-# # mutt macros for mu
-macro index <F8> "<shell-escape>mu find --clearlinks --format=links --linksdir=~/Mail/search " \
+## mutt macros for mu
+macro index <F8> "<shell-escape>mu find --clearlinks --format=links --linksdir=~/.mail/search " \
 		"mu find"
-macro index <F9> "<change-folder-readonly>~/Mail/search<return>" \
+macro index <F9> "<change-folder-readonly>~/.mail/search<return>" \
 		"mu find results"
 
 # Solarized colors
@@ -102,11 +98,8 @@ set sidebar_width=30
 set sidebar_shortpath = yes
 color sidebar_new color221 color233
 set sidebar_width   = 24
-# Status Bar -----------------------------------------
 set status_chars  = " *%A"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
-# Ctrl-n, Ctrl-p to select next, previous folder.
-# Ctrl-o to open selected folder.
 bind index,pager \CP sidebar-prev
 bind index,pager \CN sidebar-next
 bind index,pager \CO sidebar-open
@@ -114,7 +107,7 @@ macro index i '<enter-command>toggle sidebar_visible<enter><refresh>'
 macro pager i '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
 
 ## Mailboxes
-mailboxes  =/roorco/inbox =/roorco/list =roorco/facebook =/roorco/important =/roorco/sent/spedite =/roorco/spam =/roorco/trash   
+mailboxes  =/roorco/inbox =/roorco/bee =/roorco/list =roorco/facebook =/roorco/spedite =/roorco/list.mutt =/roorco/aruba =/roorco/spam =/roorco/trash  
 #mailboxes imaps://imap.gmail.com/INBOX imaps://imap.gmail.com/List
 
 #group reply
@@ -130,28 +123,28 @@ set imap_idle
 # Securing
 set move = no 
 
-auto_view text/html 				# view html automatically
-alternative_order text/plain text/enriched text/html 	# save html for last
 
 # IMAP: offlineimap
+set mbox_type=Maildir
 set folder = $HOME/.mail
 source ~/.mutt/mailboxes
 set spoolfile = "+/roorco/inbox"
-set record = "+/roorco/sent/spedite"
+set record = "+/roorco/spedite"
 #set record = "imaps://imap.gmail.com:993/Sent"
 set postponed = "+/roorco/drafts"
 
 set mark_old=no
 
-# Encrypt con Gnugpg
-source ~/.mutt/gpg.rc
-source ~/.mutt/crypto
+source ~/.mutt/gpg.rc # Encrypt con Gnugpg
+#source ~/.mutt/crypto
 
 bind compose p  pgp-menu
 macro compose Y pfy "send mail without GPG"
 
 # Gmail-style keyboard shortcuts
 macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+#macro index,pager + <save-message>=/important<enter><enter> "Mark as important"
+macro index,pager Z <save-message>=/spam<enter><enter> "Report spam"
 #macro index,pager d "<enter-command>set trash=\"imaps://imap.googlemail.com/[GMail]/Bin\"\n <delete-message>" "Gmail delete message"
 #macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
 #macro index,pager ga "<change-folder>=[Gmail]/Tutti i messaggi<enter>" "Go to all mail"
@@ -160,10 +153,7 @@ macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archi
 #macro index,pager gd "<change-folder>=[Gmail]/Bozze<enter>" "Go to drafts"
 
 #urlview
-#macro index \cu |urlview\n
-#macro pager \cu |urlview\n
-macro pager \cu <pipe-entry>'urlview'<enter> 'Follow links with urlview'
-#delete message
-macro index - delete-message
+macro pager \cu <pipe-entry>'urlview'<enter> 'Follow links with urlview' #macro pager \cu |urlview\n
+macro index - delete-message 
 #macro pager \cb <pipe-entry>'w3m'<enter> 'Follow links in w3m' 
 

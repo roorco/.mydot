@@ -3,6 +3,7 @@
 execute pathogen#infect()
 syntax enable
 set t_Co=256
+set tw=200
 
 "set noswapfile
 "set nowritebackup 

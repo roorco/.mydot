@@ -44,55 +44,29 @@ mono  indicator     reverse
 mono  error         bold
 
 # index ----------------------------------------------------------------
-color index	cyan 		default		"~C ro.dellorco | ~C ilmotorediricerca" # messaggi a ro.dellorco
-color index	brightcyan	default		"~N(~C ro.dellorco | ~C ilmotorediricerca)" # nuovi a ro.dellorco
-color index	white		default		"~C roorco" # messaggi a roorco
-color index	brightblue 	default		"~N~C roorco" # nuovi a roorco
-color index     magenta		default         "!~C roorco !~C ro.dellorco | ~f comune | ~f fonderie | ~y MailChimp" 
-#
-color index     brightmagenta 	default         "~N(!~C roorco !~C ro.dellorco | ~f comune | ~f fonderie)" 
-color index     blue		default         "~y MailChimp" 
-#
-color index     yellow 		default         "~P" # messages from me
-color index     brightyellow 	default         "~N~P" # new messages from me
+color index     white		default         "~A!~N!~T!~p!~Q!~F!~D!~P"  # the rest
+color index     brightblue	default         "~A~N!~T!~p!~Q!~F!~D"  # the rest, new
+color index	white		default		"~t ^roorco | ~t ro.dellorco" # messaggi a roorco
+color index	brightblue 	default		"~N(~t roorco | ~t ro.dellorco)" # nuovi a roorco
+color index	white		default		"~c[:alnum:]" # messaggi CC
+color index	brightblue	default		"~N(~c[:alnum:])" # nuovi a me in CC
+#color index    magenta		default         "!~C roorco !~C ro.dellorco | ~l" 
+#color index    brightmagenta 	default         "~N(!~C roorco !~C ro.dellorco | ~l)" 
+color index     white 		default         "~P" # messages from me
+color index     brightblue	default         "~N~P" # new messages from me
+color index     white           red             "~D"  # deleted messages
+color index	black		green		"~T" #tagged		
+#color index	cyan		default		"~f serciaua | ~f dellorco | ~f Dell'Orco | ~f dell'Orco | ~f solimando"
+#color index	brightcyan	default		"~N(~f serciaua | ~f dellorco | ~f Dell'Orco | ~f dell'Orco | ~f solimando")
+color index	white		default		"~f gelalalala"
+color index     brightblue 	default         "~N~f gelalalala" # new messages from gela
+color index	brightblack		default		"~Q" # message replied to
 color index     red             default         "~F" # flagged messages
 color index     brightred       default         "~N~F" # new flagged messages
-color index     white           red             "~D"  # deleted messages
-#color index    brightmagenta    default         "~O"	# old messages
-#color index    green		default         "~Q" # messages that have been replied to
-#color index    brightyellow    default         "~N~p!~F" #new messages to me
-#color index    brightblue       default         "~N" # new messages
-#color index    magenta		 default         "~A!~N!~T!~p!~Q!~F!~D!~P"  # the rest
-#color index    brightblue       default         "~A~N!~T!~p!~Q!~F!~D" # the rest, new
-#color index    yellow		 default         "~p!~F" # messages to me
-#color index    yellow           default         "~R~p!~F" # messages to me
-#color index    red              default         "~F~p" # flagged messages to me
-#color index    red              default         "~D(!~p|~p)" # deleted
 #color index    brightblue  	 default    	  "~=" # duplicate messages
 #color index    black            brightblack	  "~A" # all messages
 #color index    brightblue       default          "~E" # expired messages
 #color index    blue 	    	 default         "~R"  # read messages
-#color index    brightblue     	 default         "~U"  # unread messages
-#color index    brightblue   	 default         "~U~$"# unread, unreferenced messages
-#color index    blue             default         "~v" # messages part of a collapsed thread
-#color index    brightblue       default         "~U~p!~F" # unread messages to me
-#color index    brightred        default         "~N~F~p"  # new flagged messages to me
-#color index    brightred        default         "~U~F~p"  # new flagged messages to me
-#color index    green     	 default         "~v~(!~N)" # collapsed thread with no unread
-#color index    brightgreen      default         "~v~(~N)"  # collapsed thread with some unread
-#color index    brightgreen      default         "~N~v~(~N)" # collapsed thread with unread parent
-# statusbg used to indicated flagged when foreground color shows other status
-# for collapsed thread
-#color index         red             white           "~v~(~F)!~N"                # collapsed thread with flagged, no unread
-#color index         green     white           "~v~(~F~N)"                 # collapsed thread with some unread & flagged
-#color index         green           white           "~N~v~(~F~N)"               # collapsed thread with unread parent & flagged
-#color index         green           white           "~N~v~(~F)"                 # collapsed thread with unread parent, no unread inside, but some flagged
-#color index         blue            white           "~v~(~p)"                   # collapsed thread with unread parent, no unread inside, some to me directly
-#color index         green          red             "~v~(~D)"                   # thread with deleted (doesn't differentiate between all or partial)
-#color index         yellow          default         "~(~N)"                    # messages in threads with some unread
-#color index         green           default         "~S"                       # superseded messages
-#color index         red             default         "~T"                       # tagged messages
-#color index         brightblue       red             "~="                       # duplicated messages
 
 # message headers ------------------------------------------------------
 
@@ -121,7 +95,10 @@ color body          brightgreen     default         "[*]?((N)?ACK|CU|LOL|SCNR|BR
                                                      |IRL|RTFM|ROTFL|ROFL|YMMV)[*]?"
 color body          brightgreen     default         "[ ][*][^*]*[*][ ]?" # more emoticon?
 color body          brightgreen     default         "[ ]?[*][^*]*[*][ ]" # more emoticon?
-
+color body	    yellow	    default 	    "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # identifies email address
+color body	    blue 	    default 	    "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+" # identifies urls
+# identifies URLs
+# identifies email addresses
 ## pgp
 
 color body          red             default         "(BAD signature)"
@@ -133,7 +110,7 @@ mono  body          bold                            "^gpg: Good signature"
 mono  body          bold                            "^gpg: BAD signature from.*"
 
 # yes, an instance URL regex
-color body          blue             default         "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+#color body          blue             default         "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
 # and a heavy handed email regex
 #color body          J_magent        default         "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
 
