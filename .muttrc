@@ -1,42 +1,40 @@
-#basic .muttrc for use with Gmail
+# _*_ muttr _*_
+#
+# basic .muttrc for use with Gmai
+#
 
 # Paths ----------------------------------------------
-set folder           = ~/.mail               # mailbox location
-set alias_file       = ~/.mutt/alias         # where to store aliases
-source ~/.mutt/alias
-set header_cache     = ~/.mutt/cache/headers # where to store headers
-set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
-set certificate_file = ~/.mutt/certificates  # where to store certs
-set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
-set tmpdir           = ~/.mutt/temp          # where to keep temp files
-set signature        = ~/.mutt/signature     # my signature file
+set folder           	= ~/.mail               	# mailbox location
+set header_cache     	= ~/.mutt/cache/headers 	# where to store headers
+set message_cachedir 	= ~/.mutt/cache/bodies  	# where to store bodies
+set certificate_file 	= ~/.mutt/certificates  	# where to store certs
+set mailcap_path     	= ~/.mutt/mailcap       	# entries for filetypes
+set tmpdir           	= ~/.mutt/temp          	# where to keep temp files
+set signature        	= ~/.mutt/signature     	# my signature file
+set alias_file		= ~/.mutt/aliases
 
-# il file in cui sono contenute le mie password criptate
-source "gpg2 -dq $HOME/.my_pwds.gpg |"
-# Change the following six lines to match your Gmail account details
-set from = "roorco@gmail.com"
-set imap_user = "roorco@gmail.com"
-set imap_pass = $my_pw_personal
-set smtp_url = "smtp://roorco@smtp.gmail.com:587/"
-set smtp_pass = $my_pw_personal
-set from = "roorco@gmail.com"
-set realname = "Roberto dell'Orco"
+
+# alcune opzioni da http://www.davep.org/mutt/muttrc/ ------------------
+
+set pager_stop						#don't skiiop message on the next page
+set noconfirmappend 					#just append no confirm
+set pager_context=3	
+set mime_forward 					#forward attachments as mime
+set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+set nomark_old                 		           	# Don't mark unread new msgs as old.
 
 # Change the following line to a different editor you prefer.
 set editor = "vim"
-
 # Basic config, you can leave this as is
-# set folder = "imaps://imap.gmail.com:993"
-#set spoolfile = "+INBOX"
 set imap_check_subscribed
 set hostname = gmail.com
 set mail_check = 120
 set timeout = 300
 set imap_keepalive = 300
-set postponed = "+[GMail]/Drafts"
 #set index_format="%4C %Z %D %-15.15L %s"
 #set index_format="%2C %t %N %8s %d %f"
-set index_format="%4C %Z %[!%b %d %Y] %-17.17L %c %s"
+set index_format=" %Z %{%d/%m/%y} %-25.25n %?X?[%X]&   ? %s" 
+#set index_format="%4C %Z %[!%b %d %Y] %-17.17L %c %s"
 set folder_format="%2C %t %N %8s %d %f"
 #set record = "+[GMail]/Sent Mail"
 set move = no
@@ -45,115 +43,75 @@ set sort = 'reverse-threads'
 set sort_browser = 'reverse-date'
 set sort_aux = 'last-date-received'
 set auto_tag = yes
+# Serve a togliere brutti segni tra una riga e l'altra del messaggio inviato
+set text_flowed=yes
+## Sidebar 
+set sidebar_visible=yes
+set sidebar_width=30
+#set sidebar_shortpath = yes
+set sidebar_width   = 24
+# Prendere gli indirizzi da gmail con goobook
+#set query_command=”abook --mutt-query ‘%s’”
+#set query_command="goobook query '%s'"
+#Ricarica goobook db
+#macro index,pager gr "!goobook reload\n" "Goobook reload"
+set sort_alias= alias
+set reverse_alias=yes
+# abook configurazione (si sovrappone a goobook)
+set query_command = "abook --mutt-query '%s'"
+#per problema mailbox chiusa
+set timeout=15
+set mail_check=90
+set imap_keepalive=9000
+set imap_idle
+# Securing
+set move = no 
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+set mbox	= "+/roorco/zip/"
+# IMAP: offlineimap
+set mbox_type=Maildir
+set folder = $HOME/.mail
+set spoolfile = "+/roorco/inbox"
+set record = "+/roorco/spedite"
+#set record = "imaps://imap.gmail.com:993/Sent"
+set postponed = "+/roorco/Drafts"
+set mark_old=no
+unset abort_nosubject
+unset abort_unmodified
+
+source ~/.mutt/account				# all set for gmail account
+source ~/.mutt/macros 				#Define macros
+source ~/.mutt/mailboxes
+source ~/.mutt/auto_views			# Define autoviews
+#source ~/.mutt/gpg.rc 				# Encrypt con Gnugpg
+#source "gpg2 -dq $HOME/.my_pwds.gpg |" 		# il file in cui sono contenute le mie password criptate
+source $MAILCONF~/.mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc # Solarized colors
+source $alias_file
+
+bind editor <Tab> complete-query
+bind editor ^T complete
+bind editor <space> noop 
+bind index,pager \CL next-unread-mailbox
+# per usare Tab per autocompletamento
+bind editor <Tab> complete-query
+
+#set sidebar_sort = yes
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+#group reply
+bind index,pager,attach G group-reply
+bind compose p  pgp-menu
+# create an alias from a message
+bind  index A create-alias
+bind  pager A create-alias
+
+
+color sidebar_new color221 color233
 ignore "Authentication-Results:"
 ignore "DomainKey-Signature:"
 ignore "DKIM-Signature:"
 hdr_order Date From To Cc
 alternative_order text/plain text/enriched text/html 	# save html for last
 auto_view text/html
-bind editor <Tab> complete-query
-bind editor ^T complete
-bind editor <space> noop 
-
-
-## Macro per cambiare mailbox
-macro index gi  "<change-folder>~/.mail/roorco/inbox/<enter>"
-macro index gT  "<change-folder>~/.mail/roorco/sent<enter>"
-macro index gt  "<change-folder>~/.mail/roorco/spedite<enter>"
-macro index gl  "<change-folder>~/.mail/roorco/list<enter>"
-bind index,pager \CL next-unread-mailbox
-
-## mutt macros for mu
-macro index <F8> "<shell-escape>mu find --clearlinks --format=links --linksdir=~/.mail/search " \
-		"mu find"
-macro index <F9> "<change-folder-readonly>~/.mail/search<return>" \
-		"mu find results"
-
-# Solarized colors
-source $MAILCONF~/.mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
-
-# Serve a togliere brutti segni tra una riga e l'altra del messaggio inviato
-set text_flowed=yes
-
-# Prendere gli indirizzi da gmail con goobook
-#set query_command=”abook --mutt-query ‘%s’”
-#set query_command="goobook query '%s'"
-#Ricarica goobook db
-#macro index,pager gr "!goobook reload\n" "Goobook reload"
-macro index,pager A "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
-
-# abook configurazione (si sovrappone a goobook)
-set query_command = "abook --mutt-query '%s'"
-macro generic,index,pager \ca "<shell-escape>abook<return>" "launch abook"
-macro index,pager a "<pipe-message>abook --add-email<return>" "add the sender address to abook"
-
-# per usare Tab per autocompletamento
-bind editor <Tab> complete-query
-#Mail divise in box
-
-## Sidebar 
-set sidebar_visible=yes
-set sidebar_width=30
-#set sidebar_sort = yes
-set sidebar_shortpath = yes
-color sidebar_new color221 color233
-set sidebar_width   = 24
-set status_chars  = " *%A"
-set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
-bind index,pager \CP sidebar-prev
-bind index,pager \CN sidebar-next
-bind index,pager \CO sidebar-open
-macro index i '<enter-command>toggle sidebar_visible<enter><refresh>'
-macro pager i '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
-
-## Mailboxes
-mailboxes  =/roorco/inbox =/roorco/bee =/roorco/list =roorco/facebook =/roorco/spedite =/roorco/list.mutt =/roorco/aruba =/roorco/spam =/roorco/trash  
-#mailboxes imaps://imap.gmail.com/INBOX imaps://imap.gmail.com/List
-
-#group reply
-bind index,pager,attach G group-reply
-
-
-#per problema mailbox chiusa
-set timeout=15
-set mail_check=90
-set imap_keepalive=9000
-set imap_idle
-
-# Securing
-set move = no 
-
-
-# IMAP: offlineimap
-set mbox_type=Maildir
-set folder = $HOME/.mail
-source ~/.mutt/mailboxes
-set spoolfile = "+/roorco/inbox"
-set record = "+/roorco/spedite"
-#set record = "imaps://imap.gmail.com:993/Sent"
-set postponed = "+/roorco/drafts"
-
-set mark_old=no
-
-source ~/.mutt/gpg.rc # Encrypt con Gnugpg
-#source ~/.mutt/crypto
-
-bind compose p  pgp-menu
-macro compose Y pfy "send mail without GPG"
-
-# Gmail-style keyboard shortcuts
-macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
-#macro index,pager + <save-message>=/important<enter><enter> "Mark as important"
-macro index,pager Z <save-message>=/spam<enter><enter> "Report spam"
-#macro index,pager d "<enter-command>set trash=\"imaps://imap.googlemail.com/[GMail]/Bin\"\n <delete-message>" "Gmail delete message"
-#macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
-#macro index,pager ga "<change-folder>=[Gmail]/Tutti i messaggi<enter>" "Go to all mail"
-#macro index,pager gs "<change-folder>=[Gmail]/Speciali<enter>" "Go to starred messages"
-#macro index,pager gt "<change-folder>=[Gmail]/Posta inviata<enter>" "Go to sent mail"
-#macro index,pager gd "<change-folder>=[Gmail]/Bozze<enter>" "Go to drafts"
-
-#urlview
-macro pager \cu <pipe-entry>'urlview'<enter> 'Follow links with urlview' #macro pager \cu |urlview\n
-macro index - delete-message 
-#macro pager \cb <pipe-entry>'w3m'<enter> 'Follow links in w3m' 
-

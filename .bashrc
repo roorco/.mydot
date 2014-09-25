@@ -141,7 +141,7 @@ cl() {
 }
 
 # /home/bin in $PATH
-export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/bin:/home/orco/.gem/ruby/2.1.0/bin
 
 #cambia dinamicamente nome al terminale
 if [ $TERM = xterm ] ; then

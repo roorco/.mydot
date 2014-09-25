@@ -54,8 +54,6 @@ color index	brightblue	default		"~N(~c[:alnum:])" # nuovi a me in CC
 #color index    brightmagenta 	default         "~N(!~C roorco !~C ro.dellorco | ~l)" 
 color index     white 		default         "~P" # messages from me
 color index     brightblue	default         "~N~P" # new messages from me
-color index     white           red             "~D"  # deleted messages
-color index	black		green		"~T" #tagged		
 #color index	cyan		default		"~f serciaua | ~f dellorco | ~f Dell'Orco | ~f dell'Orco | ~f solimando"
 #color index	brightcyan	default		"~N(~f serciaua | ~f dellorco | ~f Dell'Orco | ~f dell'Orco | ~f solimando")
 color index	white		default		"~f gelalalala"
@@ -63,6 +61,8 @@ color index     brightblue 	default         "~N~f gelalalala" # new messages fro
 color index	brightblack		default		"~Q" # message replied to
 color index     red             default         "~F" # flagged messages
 color index     brightred       default         "~N~F" # new flagged messages
+color index	black		green		"~T" #tagged		
+color index     white           red             "~D"  # deleted messages
 #color index    brightblue  	 default    	  "~=" # duplicate messages
 #color index    black            brightblack	  "~A" # all messages
 #color index    brightblue       default          "~E" # expired messages

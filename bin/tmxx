@@ -12,13 +12,13 @@ then
 # new window for asterisk-billing project
 tmux new-window -t $SESSIONNAME:1 -n "ranger" /usr/bin/ranger
 # new window mutt 
-tmux new-window -t $SESSIONNAME:2 -n "mutt" /usr/bin/mutt
+tmux new-window -t $SESSIONNAME:2 -n "mail" /usr/bin/mutt
 # new window task
 tmux new-window -t $SESSIONNAME:3 -n "task" "task shell"
 # new window weechat
-tmux new-window -t $SESSIONNAME:4 -n "weechat" /usr/bin/weechat
+#tmux new-window -t $SESSIONNAME:4 -n "weechat" /usr/bin/weechat
 # new window newsbeuter
-tmux new-window -t $SESSIONNAME:5 -n "news" /usr/bin/newsbeuter
+#tmux new-window -t $SESSIONNAME:5 -n "news" /usr/bin/newsbeuter
 # new window zsh
 tmux new-window -t $SESSIONNAME:6 -n zsh 
 

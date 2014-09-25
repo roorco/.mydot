@@ -20,6 +20,7 @@ set columns=160
 set background=dark
 set wrapmargin=8
 set ruler
+hi SpellBad cterm=bold 
 highlight Cursor guifg=white guibg=black
 highlight iCursor guifg=white guibg=steelblue
 set guicursor=n-v-c:block-Cursor

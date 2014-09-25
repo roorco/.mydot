@@ -17,8 +17,8 @@ xset -dpms; xset s off &
 compton -CGb &
 
 ## Background
-#nitrogen --restore &
-sh ~/.fehbg &
+nitrogen --restore &
+#~/.fehbg &
 
 # guake terminal
 guake &
@@ -32,6 +32,7 @@ guake &
 ## Startup
 (sleep 1s && pnmixer) &
 (sleep 3s && conky) &
+(sleep 5s&& xscreensaver) &
 
 ## Optionally enable file manager in daemon mode for automounting
 #(sleep 1s && thunar --daemon) &
