@@ -14,6 +14,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+export PATH=$PATH:$HOME/bin:/home/orco/.gem/ruby/2.1.0/bin:/home/orco/bin
+
 #PATH per $mail
 #MAIL=~/.mail
 #mailpath=($mail/roorco/inbox/)
@@ -150,8 +152,6 @@ cl() {
 #    export GPG_AGENT_INFO
 #fi
 
-#/home/bin in $PATH
-export PATH=$PATH:$HOME/bin:/home/orco/.gem/ruby/2.1.0/bin
 
 #cambia dinamicamente nome al terminale
 #if [ $TERM = xterm ] ; then
