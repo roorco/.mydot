@@ -37,10 +37,10 @@ TERM=screen-256color
 alias t="task"
 alias ta="task add"
 alias tl="task list"
-alias ls="ls -h --color=auto"
+# alias ls="ls -h --color=auto"
 ## Modified commands ## {{{
 alias diff='colordiff'              # requires colordiff package
-alias grep='grep --color=auto'
+#alias grep='grep --color=auto'
 alias more='less'
 alias df='df -h'
 alias du='du -c -h'
@@ -52,9 +52,9 @@ alias dmesg='dmesg -HL'
 ## New commands ## {{{
 alias da='date "+%A, %B %d, %Y [%T]"'
 alias du1='du --max-depth=1'
-alias hist='history | grep'         # requires an argument
+#alias hist='history | grep'         # requires an argument
 alias openports='ss --all --numeric --processes --ipv4 --ipv6'
-alias pgg='ps -Af | grep'           # requires an argument
+#alias pgg='ps -Af | grep'           # requires an argument
 alias ..='cd ..'
 # }}}
 # Privileged access
@@ -105,7 +105,7 @@ alias cls=' echo -ne "\033c"'       # clear screen for real (it does not work in
 # }}}
 
 ## ls ## {{{
-alias ls='ls -hF --color=auto'
+#alias ls='ls -hF --color=auto'
 alias lr='ls -R'                    # recursive ls
 alias ll='ls -l'
 alias la='ll -A'
@@ -127,6 +127,8 @@ alias tmxa='tmux attach -d -t ALL'
 alias tmxt='tmux attach-session -t'
 alias tmxl='tmux list-sessions'
 alias tmxk='tmux kill-session -t'
+alias grep="/usr/bin/grep $GREP_OPTIONS"
+unset GREP_OPTIONS
 
 #google contacts
 alias googlc="google contacts list"
@@ -156,4 +158,7 @@ cl() {
 #cambia dinamicamente nome al terminale
 #if [ $TERM = xterm ] ; then
 #	    unset PROMPT_COMMAND
-#    fi
+
+# Quick fix for deprecated GREP_OPTIONS
+alias grep="/usr/bin/grep $GREP_OPTIONS"
+unset GREP_OPTIONS#	    fi

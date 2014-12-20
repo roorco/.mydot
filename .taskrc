@@ -93,7 +93,7 @@ report.overdue.filter=status:pending due.before:today
 # task active
 report.active.description=Lists active tasks matching the specified criteria
 report.active.columns=id,project,priority,due,entry.age,description
-report.active.labels=ID,Project,Pri,Due,,Age,Description
+report.active.labels=ID,Project,Pri,Due,Age,Description
 report.active.sort=due+,priority-,project+
 report.active.filter=status:pending start.any:
 #report.active.dateformat=m/d/Y
@@ -135,13 +135,13 @@ report.all.dateformat=m/d/Y
 #report.all.annotations=full
 
 # task next
-#report.next.description=Lists the most urgent tasks
-#report.next.columns=id,project,priority,due,entry.age,description
-#report.next.labels=ID,Project,Pri,Due,Age,Description
-#report.next.sort=due+,priority-,project+
-#report.next.filter=status:pending limit:pentry.age
-#report.next.dateformat=m/d/Y
-#report.next.annotations=full
+report.next.description=Lists the most urgent tasks
+report.next.columns=id,project,priority,due,entry.age,urgency,description.count
+report.next.labels=ID,Project,Pri,Due,Age,Urg,Description
+report.next.sort=urgency-,due+,priority-,project+
+report.next.filter=status:pending limit:pentry.age
+report.next.dateformat=b.d
+#report.next.annotations=
 
 # task priority
 report.priority.description=Lists the most urgent tasks
@@ -184,7 +184,7 @@ report.conky.dateformat=m/d
 # Color theme (uncomment one to use)
 #include /usr/local/share/doc/task/rc/light-16.theme
 #include /usr/local/share/doc/task/rc/light-256.theme
-include /usr/local/share/doc/task/rc/dark-16.theme
+#include /usr/local/share/doc/task/rc/dark-16.theme
 #include /usr/local/share/doc/task/rc/dark-256.theme
 #include /usr/local/share/doc/task/rc/dark-red-256.theme
 #include /usr/local/share/doc/task/rc/dark-green-256.theme
@@ -192,6 +192,8 @@ include /usr/local/share/doc/task/rc/dark-16.theme
 #include /usr/local/share/doc/task/rc/dark-violets-256.theme
 #include /usr/local/share/doc/task/rc/dark-yellow-green.theme
 #include /usr/local/share/doc/task/rc/dark-gray-256.theme
+#include /usr/local/share/doc/task/rc/solarized-dark-256.theme
+include /usr/local/share/doc/task/rc/zenburn.theme
 verbose=yes
 #verbose=blank, header, label, new-id, affected, edit, special, project
 #verbose=footnote
@@ -200,6 +202,8 @@ curses=on
 defaultwidth=80
 uda.estimate.type=numeric
 uda.estimate.label=Est
+urgency.user.tag.ora.coefficient=10.0
+urgency.user.tag.now.coefficient=10.0
 urgency.user.tag.dopo.coefficient=-6.0
 urgency.user.tag.later.coefficient=-6.0
 urgency.user.tag.wait.coefficient=-6.0

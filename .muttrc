@@ -1,4 +1,4 @@
-# _*_ muttr _*_
+#-_ muttr _*_
 #
 # basic .muttrc for use with Gmai
 #
@@ -13,6 +13,16 @@ set tmpdir           	= ~/.mutt/temp          	# where to keep temp files
 set signature        	= ~/.mutt/signature     	# my signature file
 set alias_file		= ~/.mutt/aliases
 
+
+# All ext file
+source ~/.mutt/account				# all set for gmail account
+source ~/.mutt/macros 				#Define macros
+source ~/.mutt/mailboxes
+source ~/.mutt/auto_views			# Define autoviews
+#source ~/.mutt/gpg.rc 				# Encrypt con Gnugpg
+#source "gpg2 -dq $HOME/.my_pwds.gpg |" 		# il file in cui sono contenute le mie password criptate
+source $MAILCONF~/.mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc # Solarized colors
+source $alias_file
 
 # alcune opzioni da http://www.davep.org/mutt/muttrc/ ------------------
 
@@ -33,7 +43,7 @@ set timeout = 300
 set imap_keepalive = 300
 #set index_format="%4C %Z %D %-15.15L %s"
 #set index_format="%2C %t %N %8s %d %f"
-set index_format=" %4C %Z %{%d/%m/%y} %-25.25n %?X?[%X]&   ? %s" 
+#set index_format=" %4C %Z %{%d/%m/%y} %-25.25n %?X?[%X]&   ? %s" 
 #set index_format="%4C %Z %[!%b %d %Y] %-17.17L %c %s"
 set folder_format="%2C %t %N %8s %d %f"
 #set record = "+[GMail]/Sent Mail"
@@ -80,14 +90,6 @@ set mark_old=no
 unset abort_nosubject
 unset abort_unmodified
 
-source ~/.mutt/account				# all set for gmail account
-source ~/.mutt/macros 				#Define macros
-source ~/.mutt/mailboxes
-source ~/.mutt/auto_views			# Define autoviews
-#source ~/.mutt/gpg.rc 				# Encrypt con Gnugpg
-#source "gpg2 -dq $HOME/.my_pwds.gpg |" 		# il file in cui sono contenute le mie password criptate
-source $MAILCONF~/.mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc # Solarized colors
-source $alias_file
 
 bind editor <Tab> complete-query
 bind editor ^T complete
@@ -115,3 +117,10 @@ ignore "DKIM-Signature:"
 hdr_order Date From To Cc
 alternative_order text/plain text/enriched text/html 	# save html for last
 auto_view text/html
+set help=no
+
+# Display recipient instead of sender in "Sent"
+folder-hook   *spedite* 'set index_format="%4C | %Z %D | %-30.30t %?X?[%X]&   ? %s"'
+folder-hook ! *spedite* 'set index_format="%4C | %Z %D | %-30.30F %?X?[%X]&   ? %s"'
+
+

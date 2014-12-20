@@ -1,23 +1,27 @@
 " Begin .vimrc
+"
 
 execute pathogen#infect()
-syntax enable
-set t_Co=256
-set tw=200
+syntax on
+filetype plugin indent on 
 
-"set noswapfile
+set background=dark
+colorscheme  zenburn
+set t_Co=256
+set tw=100
+set nocompatible 
+
+set noswapfile
 "set nowritebackup 
 "set nobackup
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swp//
 
-"set nocompatible (non ricordo a cosa serva)
 
 "Per mostrare i numeri delle line
 set number
 set bs=2
-set columns=160
-set background=dark
+"set columns=160
 set wrapmargin=8
 set ruler
 hi SpellBad cterm=bold 
@@ -28,9 +32,10 @@ set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon175
 set guicursor+=i:blinkwait175
 set clipboard=unnamedplus
-if $TERM =~ "-256color"
-  set background=light 
-endif
+hi Normal ctermbg=NONE
+"if $TERM =~ "-256color"
+" set background=dark 
+"endif
 
 set viminfo='25,\"50,n~/.viminfo
 
@@ -65,7 +70,6 @@ call delete(tmpfile)
     redraw!
 endif
 endfunction
-filetype plugin indent on 
 set nocp
 
 "capitalize shortcut
@@ -84,10 +88,20 @@ else
   nmap gcw guw~h
   nmap gcW guW~h
   nmap gciw guiw~h
-  nmap gciW guiW~h
+  nmap gciw guiw~h
   nmap gcis guis~h
   nmap gc$ gu$~h
   nmap gcgc guu~h
   nmap gcc guu~h
   vmap gc gu~h
 endif
+
+" da http://unix.stackexchange.com/questions/29907/how-to-get-vim-to-work-with-tmux-properly per
+" risolvere il problema di vim in tmux
+
+nnoremap ^[[D gt
+nnoremap ^[[C gt
+
+" Saved macro
+let @i=':setlocal spell spelllang=it'
+let @e=':setlocal spell spelllang=en'

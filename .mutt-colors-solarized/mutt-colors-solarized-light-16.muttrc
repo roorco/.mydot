@@ -24,18 +24,18 @@
 # base03, bg, black, any of the non brights
 
 # basic colors ---------------------------------------------------------
-color normal        blue	    default         
-color error         red             default         
-color tilde         green          default         
-color message       yellow         default         
-color markers       brightblack     default           
-color attachment    brightmagenta   default         
-color search        brightmagenta   default         
+color normal        blue	    	default         
+color error         red             	default         
+color tilde         green          	default         
+color message       red			default         
+color markers       brightblack 	default           
+color attachment    brightmagenta   	default         
+color search        brightmagenta   	default         
 
 #color status        J_black         J_status        
 #color status        brightblue      white           
-color indicator     black	   yellow          
-color tree          yellow         default  # arrow in threads
+color indicator     brightwhite		brightblue
+color tree          brightblack		default  # arrow in threads
 
 # basic monocolor screen
 mono  bold          bold
@@ -44,30 +44,14 @@ mono  indicator     reverse
 mono  error         bold
 
 # index ----------------------------------------------------------------
-#color index     white		default         "~A!~N!~T!~p!~Q!~F!~D!~P~O"  # the rest
-color index     brightblue	default         "~A~N!~T!~p!~Q!~F!~D"  # the rest, new
-#color index	white		default		"~t ^roorco | ~t ro.dellorco" # messaggi a roorco
-color index	brightblue 	default		"~N(~t roorco | ~t ro.dellorco)" # nuovi a roorco
-#color index	white		default		"~c[:alnum:]" # messaggi CC
-color index	brightblue	default		"~N(~c[:alnum:])" # nuovi a me in CC
-#color index    magenta		default         "!~C roorco !~C ro.dellorco | ~l" 
-#color index    brightmagenta 	default         "~N(!~C roorco !~C ro.dellorco | ~l)" 
-color index     white 		default         "~P" # messages from me
-color index     brightblue	default         "~N~P" # new messages from me
-#color index	cyan		default		"~f serciaua | ~f dellorco | ~f Dell'Orco | ~f dell'Orco | ~f solimando"
-#color index	brightcyan	default		"~N(~f serciaua | ~f dellorco | ~f Dell'Orco | ~f dell'Orco | ~f solimando")
-color index	white		default		"~f gelalalala"
-color index     brightblue 	default         "~N~f gelalalala" # new messages from gela
-color index	brightblack	default		"~Q" # message replied to
-color index     red             default         "~F" # flagged messages
-color index     brightred       default         "~N~F" # new flagged messages
-color index	black		green		"~T" #tagged		
-color index	white		red		"~O~D" # old deleted
-color index     white           red             "~D"  # deleted messages
-#color index    brightblue  	 default    	  "~=" # duplicate messages
-#color index    black            brightblack	  "~A" # all messages
-#color index    brightblue       default          "~E" # expired messages
-#color index    blue 	    	 default         "~R"  # read messages
+color index     brightblue	default         "~A"  # the rest
+color index	blue		default		"~Q" # message replied to
+color index     brightred      	default         "~F" # flagged messages
+color index	brightwhite	black	"~N"  # just new			
+color index    	magenta		black    	  "~=" # duplicate messages
+color index	black		brightgreen	"~T" #tagged		
+color index     black		red             "~D"  # deleted messages
+color index	brightblack	red		"~O~D" # old deleted
 
 # message headers ------------------------------------------------------
 
